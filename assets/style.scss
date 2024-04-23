@@ -3,23 +3,24 @@
     box-sizing: border-box;
     margin: 0;
   }
-  
-  body {
-    // overflow-x: hidden;
-  }
 
   html {
     font-size: 1vw;
   }
 
+  
+  body::-webkit-scrollbar {
+    display: none;
+  }
+
   .scene {
+    position: relative;
     width: 100vw;
     height: calc(100vw * 9 / 16);
-    position: relative;
   }
 
   svg {
-    position: absolute; 
+    position: absolute;
     bottom: 0;
   }
   

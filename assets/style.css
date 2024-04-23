@@ -7,10 +7,14 @@ html {
   font-size: 1vw;
 }
 
+body::-webkit-scrollbar {
+  display: none;
+}
+
 .scene {
+  position: relative;
   width: 100vw;
   height: 56.25vw;
-  position: relative;
 }
 
 svg {
