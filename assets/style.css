@@ -1,0 +1,23 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+html {
+  font-size: 1vw;
+}
+
+.scene {
+  width: 100vw;
+  height: 56.25vw;
+  position: relative;
+}
+
+svg {
+  position: absolute;
+  bottom: 0;
+}
+
+.scene--1 {
+  background-color: #E8ECEA;
+}/*# sourceMappingURL=style.css.map */
