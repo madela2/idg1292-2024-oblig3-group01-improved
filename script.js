@@ -23,5 +23,6 @@ document.addEventListener("DOMContentLoaded", (event) => {
   .add("headline")
   .to(".intro__headline", { duration: 0.2, opacity: 0 })
   .add("deer")
-  .fromTo("#deer", {xPercent: 0}, {xPercent: 10*80}); // didn't scale with the width change of the svg
+  .from("#deer", {xPercent: -100*10})
  });
+

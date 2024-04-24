@@ -10,24 +10,30 @@
     font-size: 1vw;
   }
 
-  
   body::-webkit-scrollbar {
     display: none;
   }
 
+  /*
+  .scene__container--1 {
+    height: 100vh;
+   background-color: 287561;
+  } */
+  
   .scene {
     position: relative;
     width: 100vw;
-    height: calc(100vw * 9 / 16);
+    height: 100vh;
+    // height: calc(100vw * 9 / 16);
+  }
+  
+  .scene--1 {
+    background-color: #E8ECEA;
   }
 
   svg {
     position: absolute;
     bottom: 0;
-  }
-  
-  .scene--1 {
-    background-color: #E8ECEA;
   }
   
   .intro__headline {
@@ -43,9 +49,17 @@
 
   #deer {
     position: absolute;
-    bottom: 15%;
-    left: -5%;
+    bottom: 12%;
+    right: 10%;
     width: 10%;
+}
+
+
+#forest-intro-trees {
+  position: absolute;
+  left: -11%;
+  bottom: 4.2%;
+  width: 118%;
 }
 
 // custom cursor (add later)
