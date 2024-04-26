@@ -1,1 +1,785 @@
-/*# sourceMappingURL=second.css.map */
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+.body {
+  height: 100vh;
+}
+
+@keyframes redSkyAnimation {
+  60% {
+    box-shadow: 0px 0px 0px 0px inset #d84c06;
+  }
+  100% {
+    box-shadow: -5vw -90vh 10vh 0 inset rgba(151, 54, 5, 0.7058823529);
+  }
+}
+.scene {
+  height: 100%;
+}
+.scene__second {
+  background-color: #BCC1D0;
+  display: flex;
+  align-items: flex-end;
+  flex-direction: row;
+  flex-wrap: wrap;
+  height: 100%;
+  position: relative;
+  animation: 10s redSkyAnimation forwards;
+}
+.scene__building {
+  background-color: #232C43;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  gap: 5%;
+  align-items: flex-start;
+  padding: 3% 1.2% 0 1.2%;
+  height: 0%;
+  /*&--foundation {
+      height: 20%;
+      width: 100%;
+  }*/
+}
+.scene__building--one {
+  width: 6%;
+}
+.scene__building--two {
+  width: 13%;
+}
+.scene__building--three {
+  width: 15%;
+  gap: 8%;
+}
+.scene__building--four {
+  width: 13.5%;
+}
+.scene__building--five {
+  width: 13.5%;
+}
+.scene__building--six {
+  width: 10%;
+}
+.scene__building--seven {
+  width: 7%;
+}
+.scene__building--eight {
+  width: 10%;
+}
+.scene__building--nine {
+  height: 80%;
+  width: 12%;
+}
+.scene__window {
+  background-color: #4C5F8F;
+}
+.scene__window--active {
+  transition: 0.2s ease-in-out;
+  background-color: rgb(255, 255, 197);
+  box-shadow: 0px 0px 20px 4px rgba(255, 255, 170, 0.4);
+}
+.scene__window--small {
+  height: 11%;
+  width: 10%;
+  margin: 0 9%;
+}
+.scene__window--medium {
+  height: 8%;
+  width: 50%;
+}
+.scene__window--large {
+  height: 10%;
+  width: 75%;
+}
+.scene__window--tall {
+  width: 10%;
+  height: 35%;
+}
+.scene__ocean {
+  z-index: 2;
+  position: absolute;
+  height: 50%;
+  bottom: 0%;
+  overflow: hidden;
+  width: 100%;
+}
+.scene__water {
+  position: absolute;
+  background-color: rgba(10, 10, 78, 0.705);
+  width: 100%;
+  height: 0%;
+  transition: 1s;
+  bottom: 0%;
+  left: 0%;
+}
+.scene__water--active {
+  animation: waterAnimation 2s forwards;
+}
+.scene__clouds {
+  transform: translate(-50%, -50%);
+  top: calc((20vh + 3vw) / 2);
+  left: 50%;
+  position: absolute;
+}
+.scene__cloud {
+  position: absolute;
+  border-radius: 50%/50%;
+  background-color: grey;
+  opacity: 0.99;
+  box-shadow: 0px 0px 1.5vw 2vw rgb(128, 128, 128);
+}
+.scene__cloud--one {
+  left: 3vw;
+  width: 20%;
+  top: calc(10% + 1.5vw);
+  height: calc(80% - 3vw);
+}
+.scene__cloud--two {
+  width: 15%;
+  left: 15%;
+  top: calc(10% + 1.5vw);
+  height: calc(80% - 3vw);
+}
+.scene__cloud--three {
+  width: 20%;
+  left: 25%;
+  top: 1.5vw;
+  height: calc(90% - 3vw);
+}
+.scene__cloud--four {
+  width: 10%;
+  left: calc(73% - 3vw);
+  top: calc(7% + 1.5vw);
+  height: calc(90% - 3vw);
+}
+.scene__cloud--five {
+  width: 30%;
+  left: 40%;
+  top: 1.5vw;
+  height: calc(100% - 3vw);
+}
+.scene__cloud--six {
+  width: 15%;
+  left: 65%;
+  top: calc(25% + 1.5vw);
+  height: calc(50% - 3vw);
+}
+.scene__cloud--seven {
+  width: 35%;
+  left: calc(65% - 3vw);
+  top: calc(7% + 1.5vw);
+  height: calc(80% - 3vw);
+}
+
+@keyframes waterAnimation {
+  0% {
+    rotate: -5deg;
+    height: 0%;
+  }
+  20% {
+    rotate: 5deg;
+  }
+  40% {
+    rotate: -5deg;
+  }
+  60% {
+    rotate: 5deg;
+  }
+  80% {
+    rotate: -5deg;
+  }
+  100% {
+    rotate: 0deg;
+    height: 100%;
+  }
+}
+.scene__floor--active {
+  width: 100%;
+  animation: foundation-buildingAnimation 0.2s forwards;
+  padding: 3% 1.2% 0 1.2%;
+  background-color: #232C43;
+}
+.scene__building {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  gap: 5%;
+  align-items: flex-start;
+  padding: 0;
+}
+.scene__building--one {
+  animation: one-buildingAnimation 1s forwards;
+  padding: 3% 1.2% 0 1.2%;
+  background-color: #232C43;
+}
+.scene__building--two {
+  animation: two-buildingAnimation 1s forwards;
+  padding: 3% 1.2% 0 1.2%;
+  background-color: #232C43;
+}
+.scene__building--three {
+  animation: three-buildingAnimation 1s forwards;
+  padding: 3% 1.2% 0 1.2%;
+  background-color: #232C43;
+}
+.scene__building--four {
+  animation: four-buildingAnimation 1s forwards;
+  padding: 3% 1.2% 0 1.2%;
+  background-color: #232C43;
+}
+.scene__building--five {
+  animation: five-buildingAnimation 1s forwards;
+  padding: 3% 1.2% 0 1.2%;
+  background-color: #232C43;
+}
+.scene__building--six {
+  animation: six-buildingAnimation 1s forwards;
+  padding: 3% 1.2% 0 1.2%;
+  background-color: #232C43;
+}
+.scene__building--seven {
+  animation: seven-buildingAnimation 1s forwards;
+  padding: 3% 1.2% 0 1.2%;
+  background-color: #232C43;
+}
+.scene__building--eight {
+  animation: eight-buildingAnimation 1s forwards;
+  padding: 3% 1.2% 0 1.2%;
+  background-color: #232C43;
+}
+.scene__building--nine {
+  position: relative;
+  background-color: transparent;
+  padding: 3% 1.2% 0 1.2%;
+}
+.scene__building--nine::before {
+  content: "";
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  height: 80%;
+  left: 0;
+  animation: nine-buildingAnimation 1s forwards;
+  background-color: #232C43;
+}
+.scene__road {
+  border-bottom: 2vw solid gray;
+  border-right: 4vw solid transparent;
+  width: 0%;
+  display: block;
+  height: 30%;
+  box-shadow: 0 0.3vw 20px 3px rgba(0, 0, 0, 0);
+}
+.scene__road--active {
+  animation: roadAnimation 1s forwards;
+  z-index: 1;
+}
+.scene__window {
+  opacity: 0;
+}
+.scene__window--first {
+  animation: first-window 0.8s forwards;
+}
+.scene__window--second {
+  animation: second-window 0.8s forwards;
+}
+.scene__window--third {
+  animation: third-window 0.8s forwards;
+}
+.scene__window--four {
+  animation: fourth-window 0.8s forwards;
+}
+.scene__window--five {
+  animation: fift-window 0.8s forwards;
+}
+.scene__window--six {
+  animation: sixth-window 0.8s forwards;
+}
+.scene__window--seven {
+  animation: seventh-window 0.8s forwards;
+}
+.scene__window--eight {
+  animation: eighth-window 0.8s forwards;
+}
+.scene__window--nine {
+  animation: ninth-window 0.8s forwards;
+}
+.scene__clouds {
+  animation: cloudsAppear 10s forwards;
+}
+
+@keyframes cloudsAppear {
+  0% {
+    opacity: 0;
+    height: 0%;
+    width: 0%;
+  }
+  25% {
+    opacity: 0.8;
+    height: 0%;
+    width: 0%;
+  }
+  90%, 100% {
+    opacity: 0.99;
+    width: 100%;
+    height: calc(20vh + 3vw);
+  }
+}
+@keyframes roadAnimation {
+  50% {
+    box-shadow: 0 0vw 0px 0px rgba(0, 0, 0, 0.523), 0 0vw 0vw 0vw rgba(0, 0, 0, 0.3);
+    width: 100%;
+    border-right: 0vw solid transparent;
+  }
+  100% {
+    width: 100%;
+    border-right: 0vw solid transparent;
+    box-shadow: 0 0.3vw 1px 3px rgba(0, 0, 0, 0.523), 0 -5vw 10vw 5vw rgba(0, 0, 0, 0.3);
+  }
+}
+@keyframes one-buildingAnimation {
+  0%, 9% {
+    height: 0%;
+  }
+  10%, 17% {
+    height: 4%;
+  }
+  18%, 29% {
+    height: 14%;
+  }
+  30%, 35% {
+    height: 20%;
+  }
+  36%, 40% {
+    height: 30%;
+  }
+  50%, 59% {
+    height: 32.5%;
+  }
+  60%, 65% {
+    height: 40%;
+  }
+  66%, 73% {
+    height: 45%;
+  }
+  74%, 85% {
+    height: 53%;
+  }
+  86%, 90% {
+    height: 60%;
+  }
+  91%, 100% {
+    height: 65%;
+  }
+}
+@keyframes two-buildingAnimation {
+  0%, 9% {
+    height: 0%;
+  }
+  10%, 17% {
+    height: 0%;
+  }
+  18%, 29% {
+    height: 0%;
+  }
+  30%, 35% {
+    height: 10%;
+  }
+  36%, 40% {
+    height: 20%;
+  }
+  50%, 59% {
+    height: 30%;
+  }
+  60%, 65% {
+    height: 40%;
+  }
+  66%, 73% {
+    height: 56%;
+  }
+  74%, 85% {
+    height: 65%;
+  }
+  86%, 90% {
+    height: 73%;
+  }
+  91%, 100% {
+    height: 80%;
+  }
+}
+@keyframes three-buildingAnimation {
+  0%, 9% {
+    height: 5%;
+  }
+  10%, 17% {
+    height: 5%;
+  }
+  18%, 29% {
+    height: 15%;
+  }
+  30%, 35% {
+    height: 16%;
+  }
+  36%, 40% {
+    height: 25%;
+  }
+  50%, 59% {
+    height: 30%;
+  }
+  60%, 65% {
+    height: 36%;
+  }
+  66%, 73% {
+    height: 39%;
+  }
+  74%, 85% {
+    height: 43%;
+  }
+  86%, 90% {
+    height: 48%;
+  }
+  91%, 100% {
+    height: 50%;
+    box-shadow: -10px 20px 20px 0px rgba(0, 0, 0, 0.3) inset;
+  }
+}
+@keyframes four-buildingAnimation {
+  0%, 9% {
+    height: 4%;
+  }
+  10%, 17% {
+    height: 8%;
+  }
+  18%, 29% {
+    height: 14%;
+  }
+  30%, 35% {
+    height: 22%;
+  }
+  36%, 40% {
+    height: 25%;
+  }
+  50%, 59% {
+    height: 31.5%;
+  }
+  60%, 65% {
+    height: 38%;
+  }
+  66%, 73% {
+    height: 39%;
+  }
+  74%, 85% {
+    height: 44%;
+  }
+  86%, 90% {
+    height: 53%;
+  }
+  91%, 100% {
+    height: 63%;
+  }
+}
+@keyframes five-buildingAnimation {
+  0%, 9% {
+    height: 1%;
+  }
+  10%, 17% {
+    height: 4%;
+  }
+  18%, 29% {
+    height: 8%;
+  }
+  30%, 35% {
+    height: 12%;
+  }
+  36%, 40% {
+    height: 14%;
+  }
+  50%, 59% {
+    height: 16%;
+  }
+  60%, 65% {
+    height: 18%;
+    box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0) inset;
+  }
+  66%, 73% {
+    height: 19%;
+  }
+  74%, 85% {
+    height: 19%;
+  }
+  86%, 90% {
+    height: 22%;
+  }
+  91%, 100% {
+    height: 25%;
+    box-shadow: -20px 0px 20px 0px rgba(0, 0, 0, 0.4) inset;
+  }
+}
+@keyframes six-buildingAnimation {
+  0%, 9% {
+    height: 6%;
+  }
+  10%, 17% {
+    height: 10%;
+  }
+  18%, 29% {
+    height: 13%;
+  }
+  30%, 35% {
+    height: 16%;
+  }
+  36%, 40% {
+    height: 17%;
+  }
+  50%, 59% {
+    height: 25%;
+  }
+  60%, 65% {
+    height: 29%;
+  }
+  66%, 73% {
+    height: 32%;
+  }
+  74%, 85% {
+    height: 40%;
+  }
+  86%, 90% {
+    height: 45%;
+  }
+  91%, 100% {
+    height: 50%;
+  }
+}
+@keyframes seven-buildingAnimation {
+  0%, 9% {
+    height: 14%;
+  }
+  10%, 17% {
+    height: 16%;
+  }
+  18%, 29% {
+    height: 20%;
+  }
+  30%, 35% {
+    height: 25%;
+  }
+  36%, 40% {
+    height: 28%;
+  }
+  50%, 59% {
+    height: 34.5%;
+  }
+  60%, 65% {
+    height: 40%;
+  }
+  66%, 73% {
+    height: 48%;
+  }
+  74%, 85% {
+    height: 53%;
+  }
+  86%, 90% {
+    height: 60%;
+  }
+  91%, 100% {
+    height: 69%;
+  }
+}
+@keyframes eight-buildingAnimation {
+  0%, 9% {
+    height: 4%;
+  }
+  10%, 17% {
+    height: 8%;
+  }
+  18%, 29% {
+    height: 14%;
+  }
+  30%, 35% {
+    height: 22%;
+  }
+  36%, 40% {
+    height: 25%;
+  }
+  50%, 59% {
+    height: 31.5%;
+  }
+  60%, 65% {
+    height: 38%;
+  }
+  66%, 73% {
+    height: 39%;
+  }
+  74%, 85% {
+    height: 44%;
+  }
+  86%, 90% {
+    height: 53%;
+  }
+  91%, 100% {
+    height: 63%;
+  }
+}
+@keyframes nine-buildingAnimation {
+  0%, 9% {
+    height: 0%;
+  }
+  10%, 17% {
+    height: 10%;
+  }
+  18%, 29% {
+    height: 18%;
+  }
+  30%, 35% {
+    height: 25%;
+  }
+  36%, 40% {
+    height: 35%;
+  }
+  50%, 59% {
+    height: 45%;
+  }
+  60%, 65% {
+    height: 50%;
+  }
+  66%, 73% {
+    height: 76%;
+  }
+  74%, 85% {
+    height: 85%;
+  }
+  86%, 90% {
+    height: 93%;
+  }
+  91%, 100% {
+    height: 100%;
+  }
+}
+@keyframes foundation-buildingAnimation {
+  24% {
+    height: 0%;
+  }
+  25% {
+    height: 5%;
+  }
+  49% {
+    height: 5%;
+  }
+  50% {
+    height: 10%;
+  }
+  74% {
+    height: 10%;
+  }
+  75% {
+    height: 15%;
+  }
+  99% {
+    height: 15%;
+  }
+  100% {
+    height: 20%;
+  }
+}
+@keyframes first-window {
+  9% {
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes second-window {
+  19% {
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes fourth-window {
+  29% {
+    opacity: 0;
+  }
+  30% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes third-window {
+  39% {
+    opacity: 0;
+  }
+  40% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes fift-window {
+  49% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes sixth-window {
+  59% {
+    opacity: 0;
+  }
+  60% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes ninth-window {
+  69% {
+    opacity: 0;
+  }
+  70% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes seventh-window {
+  79% {
+    opacity: 0;
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes eighth-window {
+  89% {
+    opacity: 0;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+  }
+}/*# sourceMappingURL=second.css.map */
