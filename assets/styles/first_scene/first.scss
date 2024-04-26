@@ -1,0 +1,109 @@
+@use "animation.scss";
+@use "colors.scss";
+
+// default styling
+* {
+    box-sizing: border-box;
+    margin: 0;
+  }
+
+  html {
+    font-size: 1vw;
+    font-family: "Roboto";
+    cursor: url(../svgs/green-circle.svg) 15 15, move;
+  }
+
+  body {
+   user-select: none; // make text non-selectable
+  }
+
+  body::-webkit-scrollbar {
+    display: none;
+  }
+
+  /*
+  .scene__container--1 {
+    height: 100vh;
+   background-color: #287561;
+  } */
+  
+  .scene {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    // height: calc(100vw * 9 / 16);
+    overflow-x: hidden;
+  }
+  
+  .scene--1 {
+    background-color: #E8ECEA;
+  }
+
+  .scene__fact-box {
+    font-size: 1.5rem;
+    position: absolute;
+    left: 50%;
+    bottom: 50%;
+    padding: 1.5rem;
+    transform: translate(-50%, 50%);
+    width: 40ch;
+
+    &--forest {
+      border: 0.5rem solid colors.$forest-greenV4;
+      border-radius: 15px;
+      background-color: #E8ECEA;
+      // display: none;
+    }
+  }
+
+  .scene__container--1 svg {
+    position: absolute;
+    bottom: 0;
+  }
+  
+  .intro__headline {
+    font-size: 4.8rem;
+    font-family: "Amatic SC", sans-serif;
+    color: #E8ECEA;
+    position: absolute;
+    left: 50%;
+    bottom: 20%;
+    transform: translate(-50%, -50%);
+    font-weight: bold;
+  }
+
+  #deer {
+    position: absolute;
+    bottom: 12%;
+    right: 10%;
+    width: 10%;
+}
+
+#forest-intro-trees {
+  bottom: 4.2%;
+}
+
+.forest-intro-trees__container {
+  width: 100vw;
+}
+
+#gas_forest {
+  position: absolute;
+  bottom: 70%;
+}
+
+.bulldozer {
+&--active{
+  animation: bulldozerDrive 10s forwards;
+}
+  width: 60vw;
+  position: absolute;
+  left: -60%;
+}
+
+@keyframes bulldozerDrive {
+  100%{
+    left: 200%;
+  }
+  
+}
