@@ -1,22 +1,27 @@
 //This is a temp script. ONLY for testing to be implemented into observer later
-
 //IMPORTANT! DO NOT MODIFY for anything else than scene two!
 
 const buildings = document.querySelectorAll('.scene__building');
 const windows = document.querySelectorAll('.scene__window');
-const checkBox = document.querySelector('#testbox');
 const scene = document.querySelector('.scene');
 const secondScene = document.querySelector('.scene__second');
 const road = document.querySelector('.scene__road');
 const sceneFloor = document.querySelector('#scene__floor--active');
 const water = document.querySelector('.scene__water');
 
+//for intersectional observer
+let number = 0
+let secondSceneInitiation = false;
+const textBox = document.querySelector('.textBox')
+
 scene.removeChild(secondScene);
 sceneFloor.removeChild(road);
 
-checkBox.addEventListener('change', () => {
+function InitiatesecondSceneCss() {
+    console.log('initiated');
+
     //removes and appends second/city-scene into <div class="scene">
-    scene[checkBox.checked ? 'append' : 'removeChild'](secondScene);
+    scene[secondSceneInitiation ? 'append' : 'removeChild'](secondScene);
 
     //gives all buildings the correct classname for css keyframe animation.
     //first activates the "floor" of the scene, then the buildings
@@ -26,7 +31,7 @@ checkBox.addEventListener('change', () => {
         }, building.id === 'scene__floor--active' ? 0 : 300);
     });
 
-    if (checkBox.checked) {
+    if (secondSceneInitiation) {
         setTimeout(() => {
             sceneFloor.append(road)
         }, 2000);
@@ -42,12 +47,43 @@ checkBox.addEventListener('change', () => {
         sceneFloor.removeChild(road);
     }
 
+    //initiates windows by adding names to classlist when relevant. Removes when going back
     windows.forEach(window => {
-        setTimeout(() => {
-            window.classList[checkBox.checked ? 'add' : 'remove'](window.getAttribute('data-windows'));
-        }, 1000);
-        setTimeout(() => {
-            window.classList[checkBox.checked ? 'add' : 'remove']('scene__window--active');
-        }, 2500)
+        if (secondSceneInitiation) {
+            setTimeout(() => {
+                window.classList.add(window.getAttribute('data-windows'));
+            }, 1000);
+            setTimeout(() => {
+                window.classList.add('scene__window--active');
+            }, 2500);
+        }
+        else {
+            window.classList.remove(window.getAttribute('data-windows'));
+            window.classList.remove(window.getAttribute('scene__window--active'));
+        }
     });
+}
+
+//making the text scrollable without causing the webpage to scroll
+document.addEventListener('wheel', (event) => {
+    event.deltaY < 0 ? number++ : number--;
+    const position = number.toString() * 8;
+    //check that this is accepted. if not, find a different way of doing it.
+    textBox.style.setProperty('--y-pos', `${position}px`);
 });
+
+
+//initiates second scene when text from previous scene is scrolled out of window on (top only)
+const observer = new IntersectionObserver((entry) => {
+    //managing bolean which is used in function running scene 2
+    secondSceneInitiation = textBox.getBoundingClientRect().top <= 0 ? true : false;
+    !entry[0].isIntersecting ? InitiatesecondSceneCss() : InitiatesecondSceneCss();
+    console.log(secondSceneInitiation);
+
+},
+    {
+        root: null,
+        rootMargin: '0px',
+        threshold: 1.0
+    });
+observer.observe(textBox);

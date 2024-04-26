@@ -5,17 +5,11 @@
 
 .body {
   height: 100vh;
+  overflow: hidden;
 }
 
-@keyframes redSkyAnimation {
-  60% {
-    box-shadow: 0px 0px 0px 0px inset #d84c06;
-  }
-  100% {
-    box-shadow: -5vw -90vh 10vh 0 inset rgba(151, 54, 5, 0.7058823529);
-  }
-}
 .scene {
+  position: relative;
   height: 100%;
 }
 .scene__second {
@@ -25,55 +19,117 @@
   flex-direction: row;
   flex-wrap: wrap;
   height: 100%;
-  position: relative;
+  width: 100%;
+  top: 0;
+  left: 0;
+  position: absolute;
   animation: 10s redSkyAnimation forwards;
 }
 .scene__building {
-  background-color: #232C43;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-evenly;
   gap: 5%;
   align-items: flex-start;
-  padding: 3% 1.2% 0 1.2%;
-  height: 0%;
-  /*&--foundation {
-      height: 20%;
-      width: 100%;
-  }*/
+  padding: 0;
 }
 .scene__building--one {
+  animation: one-buildingAnimation 1s forwards;
+  padding: 3% 1.2% 0 1.2%;
+  background-color: #232C43;
   width: 6%;
 }
 .scene__building--two {
+  animation: two-buildingAnimation 1s forwards;
+  padding: 3% 1.2% 0 1.2%;
+  background-color: #232C43;
   width: 13%;
 }
 .scene__building--three {
+  animation: three-buildingAnimation 1s forwards;
+  padding: 3% 1.2% 0 1.2%;
+  background-color: #232C43;
   width: 15%;
   gap: 8%;
 }
 .scene__building--four {
+  animation: four-buildingAnimation 1s forwards;
+  padding: 3% 1.2% 0 1.2%;
+  background-color: #232C43;
   width: 13.5%;
 }
 .scene__building--five {
+  animation: five-buildingAnimation 1s forwards;
+  padding: 3% 1.2% 0 1.2%;
+  background-color: #232C43;
   width: 13.5%;
 }
 .scene__building--six {
+  animation: six-buildingAnimation 1s forwards;
+  padding: 3% 1.2% 0 1.2%;
+  background-color: #232C43;
   width: 10%;
 }
 .scene__building--seven {
+  animation: seven-buildingAnimation 1s forwards;
+  padding: 3% 1.2% 0 1.2%;
+  background-color: #232C43;
   width: 7%;
 }
 .scene__building--eight {
+  animation: eight-buildingAnimation 1s forwards;
+  padding: 3% 1.2% 0 1.2%;
+  background-color: #232C43;
   width: 10%;
 }
 .scene__building--nine {
   height: 80%;
   width: 12%;
+  position: relative;
+  background-color: transparent;
+  padding: 3% 1.2% 0 1.2%;
+}
+.scene__building--nine::before {
+  content: "";
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  height: 80%;
+  left: 0;
+  animation: nine-buildingAnimation 1s forwards;
+  background-color: #232C43;
 }
 .scene__window {
   background-color: #4C5F8F;
+  opacity: 0;
+}
+.scene__window--first {
+  animation: first-window 0.8s forwards;
+}
+.scene__window--second {
+  animation: second-window 0.8s forwards;
+}
+.scene__window--third {
+  animation: third-window 0.8s forwards;
+}
+.scene__window--four {
+  animation: fourth-window 0.8s forwards;
+}
+.scene__window--five {
+  animation: fift-window 0.8s forwards;
+}
+.scene__window--six {
+  animation: sixth-window 0.8s forwards;
+}
+.scene__window--seven {
+  animation: seventh-window 0.8s forwards;
+}
+.scene__window--eight {
+  animation: eighth-window 0.8s forwards;
+}
+.scene__window--nine {
+  animation: ninth-window 0.8s forwards;
 }
 .scene__window--active {
   transition: 0.2s ease-in-out;
@@ -97,6 +153,12 @@
   width: 10%;
   height: 35%;
 }
+.scene__floor--active {
+  width: 100%;
+  animation: foundation-buildingAnimation 0.2s forwards;
+  padding: 3% 1.2% 0 1.2%;
+  background-color: #232C43;
+}
 .scene__ocean {
   z-index: 2;
   position: absolute;
@@ -107,7 +169,7 @@
 }
 .scene__water {
   position: absolute;
-  background-color: rgba(10, 10, 78, 0.705);
+  background-color: rgba(76, 95, 142, 0.7411764706);
   width: 100%;
   height: 0%;
   transition: 1s;
@@ -122,6 +184,7 @@
   top: calc((20vh + 3vw) / 2);
   left: 50%;
   position: absolute;
+  animation: cloudsAppear 10s forwards;
 }
 .scene__cloud {
   position: absolute;
@@ -172,7 +235,27 @@
   top: calc(7% + 1.5vw);
   height: calc(80% - 3vw);
 }
+.scene__road {
+  border-bottom: 2vw solid gray;
+  border-right: 4vw solid transparent;
+  width: 0%;
+  display: block;
+  height: 30%;
+  box-shadow: 0 0.3vw 20px 3px rgba(0, 0, 0, 0);
+}
+.scene__road--active {
+  animation: roadAnimation 1s forwards;
+  z-index: 1;
+}
 
+@keyframes redSkyAnimation {
+  60% {
+    box-shadow: 0px 0px 0px 0px inset #d84c06;
+  }
+  100% {
+    box-shadow: -5vw -90vh 10vh 0 inset rgba(151, 54, 5, 0.7058823529);
+  }
+}
 @keyframes waterAnimation {
   0% {
     rotate: -5deg;
@@ -195,122 +278,6 @@
     height: 100%;
   }
 }
-.scene__floor--active {
-  width: 100%;
-  animation: foundation-buildingAnimation 0.2s forwards;
-  padding: 3% 1.2% 0 1.2%;
-  background-color: #232C43;
-}
-.scene__building {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: space-evenly;
-  gap: 5%;
-  align-items: flex-start;
-  padding: 0;
-}
-.scene__building--one {
-  animation: one-buildingAnimation 1s forwards;
-  padding: 3% 1.2% 0 1.2%;
-  background-color: #232C43;
-}
-.scene__building--two {
-  animation: two-buildingAnimation 1s forwards;
-  padding: 3% 1.2% 0 1.2%;
-  background-color: #232C43;
-}
-.scene__building--three {
-  animation: three-buildingAnimation 1s forwards;
-  padding: 3% 1.2% 0 1.2%;
-  background-color: #232C43;
-}
-.scene__building--four {
-  animation: four-buildingAnimation 1s forwards;
-  padding: 3% 1.2% 0 1.2%;
-  background-color: #232C43;
-}
-.scene__building--five {
-  animation: five-buildingAnimation 1s forwards;
-  padding: 3% 1.2% 0 1.2%;
-  background-color: #232C43;
-}
-.scene__building--six {
-  animation: six-buildingAnimation 1s forwards;
-  padding: 3% 1.2% 0 1.2%;
-  background-color: #232C43;
-}
-.scene__building--seven {
-  animation: seven-buildingAnimation 1s forwards;
-  padding: 3% 1.2% 0 1.2%;
-  background-color: #232C43;
-}
-.scene__building--eight {
-  animation: eight-buildingAnimation 1s forwards;
-  padding: 3% 1.2% 0 1.2%;
-  background-color: #232C43;
-}
-.scene__building--nine {
-  position: relative;
-  background-color: transparent;
-  padding: 3% 1.2% 0 1.2%;
-}
-.scene__building--nine::before {
-  content: "";
-  width: 100%;
-  position: absolute;
-  bottom: 0;
-  height: 80%;
-  left: 0;
-  animation: nine-buildingAnimation 1s forwards;
-  background-color: #232C43;
-}
-.scene__road {
-  border-bottom: 2vw solid gray;
-  border-right: 4vw solid transparent;
-  width: 0%;
-  display: block;
-  height: 30%;
-  box-shadow: 0 0.3vw 20px 3px rgba(0, 0, 0, 0);
-}
-.scene__road--active {
-  animation: roadAnimation 1s forwards;
-  z-index: 1;
-}
-.scene__window {
-  opacity: 0;
-}
-.scene__window--first {
-  animation: first-window 0.8s forwards;
-}
-.scene__window--second {
-  animation: second-window 0.8s forwards;
-}
-.scene__window--third {
-  animation: third-window 0.8s forwards;
-}
-.scene__window--four {
-  animation: fourth-window 0.8s forwards;
-}
-.scene__window--five {
-  animation: fift-window 0.8s forwards;
-}
-.scene__window--six {
-  animation: sixth-window 0.8s forwards;
-}
-.scene__window--seven {
-  animation: seventh-window 0.8s forwards;
-}
-.scene__window--eight {
-  animation: eighth-window 0.8s forwards;
-}
-.scene__window--nine {
-  animation: ninth-window 0.8s forwards;
-}
-.scene__clouds {
-  animation: cloudsAppear 10s forwards;
-}
-
 @keyframes cloudsAppear {
   0% {
     opacity: 0;
@@ -782,4 +749,13 @@
   100% {
     opacity: 1;
   }
+}
+.textBox {
+  width: 50%;
+  border: solid red 5px;
+  margin: 0;
+  position: absolute;
+  top: calc(50% + (var(--y-pos, 0px)));
+  left: 50%;
+  transform: translate(-50%, 0%);
 }/*# sourceMappingURL=second.css.map */
