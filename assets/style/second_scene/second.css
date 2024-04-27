@@ -158,6 +158,7 @@
   animation: foundation-buildingAnimation 0.2s forwards;
   padding: 3% 1.2% 0 1.2%;
   background-color: #232C43;
+  padding: 3% 0% 0 0%;
 }
 .scene__ocean {
   z-index: 2;
@@ -177,14 +178,14 @@
   left: 0%;
 }
 .scene__water--active {
-  animation: waterAnimation 2s forwards;
+  animation: waterAnimation 2s forwards, waterwaving 3s ease-in-out infinite 1.8s;
 }
 .scene__clouds {
   transform: translate(-50%, -50%);
   top: calc((20vh + 3vw) / 2);
   left: 50%;
   position: absolute;
-  animation: cloudsAppear 10s forwards;
+  animation: cloudsAppear 10s forwards, cloudsGrow 30s forwards 13s;
 }
 .scene__cloud {
   position: absolute;
@@ -247,12 +248,125 @@
   animation: roadAnimation 1s forwards;
   z-index: 1;
 }
+.scene__pollution {
+  background-color: grey;
+  position: absolute;
+  box-shadow: 0px 0px 1vw 1vw grey;
+  opacity: 0;
+  border-radius: 50%/50%;
+  aspect-ratio: 1/2;
+  animation-delay: 0s;
+}
+.scene__pollution--one {
+  width: 2.5%;
+  left: 8%;
+  animation: one-pollutionAnimation 4s infinite;
+}
+.scene__pollution--two {
+  width: 1.5%;
+  left: 25%;
+  animation: two-pollutionAnimation 3s infinite;
+}
+.scene__pollution--three {
+  left: 45%;
+  animation: three-pollutionAnimation 4s infinite;
+}
+.scene__pollution--four {
+  width: 1%;
+  left: 70%;
+  animation: four-pollutionAnimation 2s infinite;
+}
+.scene__pollution--five {
+  width: 3.5%;
+  left: 80%;
+  animation: five-pollutionAnimation 4s infinite;
+}
 
-@keyframes redSkyAnimation {
-  60% {
-    box-shadow: 0px 0px 0px 0px inset #d84c06;
+@keyframes one-pollutionAnimation {
+  0% {
+    top: 70%;
+    opacity: 0;
+    scale: 0.1;
+  }
+  50% {
+    opacity: 0.5;
+    scale: 1;
   }
   100% {
+    opacity: 0;
+    scale: 0.1;
+    top: 20%;
+  }
+}
+@keyframes two-pollutionAnimation {
+  0% {
+    top: 68%;
+    opacity: 0;
+    scale: 0.1;
+  }
+  50% {
+    opacity: 0.5;
+    scale: 1;
+  }
+  100% {
+    opacity: 0;
+    scale: 0.1;
+    top: 20%;
+  }
+}
+@keyframes three-pollutionAnimation {
+  0% {
+    top: 71%;
+    opacity: 0;
+    scale: 0.1;
+  }
+  50% {
+    opacity: 0.5;
+    scale: 1;
+  }
+  100% {
+    opacity: 0;
+    scale: 0.1;
+    top: 20%;
+  }
+}
+@keyframes four-pollutionAnimation {
+  0% {
+    top: 60%;
+    opacity: 0;
+    scale: 0.1;
+  }
+  50% {
+    opacity: 0.5;
+    scale: 1;
+  }
+  100% {
+    opacity: 0;
+    scale: 0.1;
+    top: 20%;
+  }
+}
+@keyframes five-pollutionAnimation {
+  0% {
+    top: 70%;
+    opacity: 0;
+    scale: 0.1;
+  }
+  50% {
+    opacity: 0.5;
+    scale: 1;
+  }
+  100% {
+    opacity: 0;
+    scale: 0.1;
+    top: 15%;
+  }
+}
+@keyframes redSkyAnimation {
+  10% {
+    box-shadow: 0px 0px 0px 0px inset #d84c06;
+  }
+  50%, 100% {
     box-shadow: -5vw -90vh 10vh 0 inset rgba(151, 54, 5, 0.7058823529);
   }
 }
@@ -278,21 +392,40 @@
     height: 100%;
   }
 }
+@keyframes waterwaving {
+  0% {
+    height: 100%;
+  }
+  50% {
+    height: 97%;
+  }
+  100% {
+    height: 100%;
+  }
+}
 @keyframes cloudsAppear {
   0% {
     opacity: 0;
     height: 0%;
     width: 0%;
   }
-  25% {
+  5% {
     opacity: 0.8;
     height: 0%;
     width: 0%;
   }
-  90%, 100% {
+  60%, 100% {
     opacity: 0.99;
     width: 100%;
     height: calc(20vh + 3vw);
+  }
+}
+@keyframes cloudsGrow {
+  from {
+    height: calc(20vh + 3vw);
+  }
+  to {
+    height: calc(50vh + 3vw);
   }
 }
 @keyframes roadAnimation {

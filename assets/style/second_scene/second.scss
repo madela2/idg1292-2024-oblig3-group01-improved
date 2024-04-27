@@ -176,6 +176,7 @@
         &--active {
             width: 100%;
             @include buildingCallAnimations(foundation-buildingAnimation 0.2s forwards);
+            padding: 3% 0% 0 0%;
             //animation: foundation-buildingAnimation 0.2s forwards;
         }
     }
@@ -199,7 +200,7 @@
         left: 0%;
 
         &--active {
-            animation: waterAnimation 2s forwards;
+            animation: waterAnimation 2s forwards, waterwaving 3s ease-in-out infinite 1.8s;
         }
     }
 
@@ -208,7 +209,7 @@
         top: calc((20vh + 3vw) / 2);
         left: 50%;
         position: absolute;
-        animation: cloudsAppear 10s forwards;
+        animation: cloudsAppear 10s forwards, cloudsGrow 30s forwards 13s;
     }
 
     &__cloud {
@@ -281,16 +282,151 @@
             z-index: 1;
         }
     }
+
+    &__pollution {
+        background-color: grey;
+        position: absolute;
+        box-shadow: 0px 0px 1vw 1vw grey;
+        opacity: 0;
+        border-radius: 50% /50%;
+        aspect-ratio: 1 / 2;
+        animation-delay: 0s;
+
+        &--one {
+            width: 2.5%;
+            left: 8%;
+            animation: one-pollutionAnimation 4s infinite;
+        }
+
+        &--two {
+            width: 1.5%;
+            left: 25%;
+            animation: two-pollutionAnimation 3s infinite;
+        }
+
+        &--three {
+            left: 45%;
+            animation: three-pollutionAnimation 4s infinite;
+        }
+
+        &--four {
+            width: 1%;
+            left: 70%;
+            animation: four-pollutionAnimation 2s infinite;
+        }
+
+        &--five {
+            width: 3.5%;
+            left: 80%;
+            animation: five-pollutionAnimation 4s infinite;
+        }
+    }
+}
+
+@keyframes one-pollutionAnimation {
+    0% {
+        top: 70%;
+        opacity: 0;
+        scale: 0.1;
+    }
+
+    50% {
+        opacity: 0.5;
+        scale: 1;
+    }
+
+    100% {
+        opacity: 0;
+        scale: 0.1;
+        top: 20%;
+    }
+}
+
+@keyframes two-pollutionAnimation {
+    0% {
+        top: 68%;
+        opacity: 0;
+        scale: 0.1;
+    }
+
+    50% {
+        opacity: 0.5;
+        scale: 1;
+    }
+
+    100% {
+        opacity: 0;
+        scale: 0.1;
+        top: 20%;
+    }
+}
+
+@keyframes three-pollutionAnimation {
+    0% {
+        top: 71%;
+        opacity: 0;
+        scale: 0.1;
+    }
+
+    50% {
+        opacity: 0.5;
+        scale: 1;
+    }
+
+    100% {
+        opacity: 0;
+        scale: 0.1;
+        top: 20%;
+    }
+}
+
+@keyframes four-pollutionAnimation {
+    0% {
+        top: 60%;
+        opacity: 0;
+        scale: 0.1;
+    }
+
+    50% {
+        opacity: 0.5;
+        scale: 1;
+    }
+
+    100% {
+        opacity: 0;
+        scale: 0.1;
+        top: 20%;
+    }
+}
+
+@keyframes five-pollutionAnimation {
+    0% {
+        top: 70%;
+        opacity: 0;
+        scale: 0.1;
+    }
+
+    50% {
+        opacity: 0.5;
+        scale: 1;
+    }
+
+    100% {
+        opacity: 0;
+        scale: 0.1;
+        top: 15%;
+    }
 }
 
 //scss needed for animation below
 //Temporarely placing them separately, will be merget later on: to not cause issues with the already working css
 
 @keyframes redSkyAnimation {
-    60% {
+    10% {
         box-shadow: 0px 0px 0px 0px inset #d84c06;
     }
 
+    50%,
     100% {
         box-shadow: -5vw -90vh 10vh 0 inset #973605b4;
     }
@@ -324,6 +460,21 @@
     }
 }
 
+@keyframes waterwaving {
+
+    0% {
+        height: 100%;
+    }
+
+    50% {
+        height: 97%;
+    }
+
+    100% {
+        height: 100%;
+    }
+}
+
 @keyframes cloudsAppear {
 
     0% {
@@ -332,17 +483,27 @@
         width: 0%;
     }
 
-    25% {
+    5% {
         opacity: 0.8;
         height: 0%;
         width: 0%;
     }
 
-    90%,
+    60%,
     100% {
         opacity: 0.99;
         width: 100%;
         height: calc(20vh + 3vw);
+    }
+}
+
+@keyframes cloudsGrow {
+    from {
+        height: calc(20vh + 3vw);
+    }
+
+    to {
+        height: calc(50vh + 3vw);
     }
 }
 

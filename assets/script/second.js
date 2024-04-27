@@ -8,6 +8,7 @@ const secondScene = document.querySelector('.scene__second');
 const road = document.querySelector('.scene__road');
 const sceneFloor = document.querySelector('#scene__floor--active');
 const water = document.querySelector('.scene__water');
+let initiated = false;
 
 //for intersectional observer
 let number = 0
@@ -18,8 +19,6 @@ scene.removeChild(secondScene);
 sceneFloor.removeChild(road);
 
 function InitiatesecondSceneCss() {
-    console.log('initiated');
-
     //removes and appends second/city-scene into <div class="scene">
     scene[secondSceneInitiation ? 'append' : 'removeChild'](secondScene);
 
@@ -40,7 +39,7 @@ function InitiatesecondSceneCss() {
         }, 2010);
         setTimeout(() => {
             water.classList.add(`${water.className}--active`)
-        }, 9000);
+        }, 3500);
     } else {
         water.classList.remove('scene__water--active')
         road.classList.remove(`scene__road--active`)
@@ -75,11 +74,12 @@ document.addEventListener('wheel', (event) => {
 
 //initiates second scene when text from previous scene is scrolled out of window on (top only)
 const observer = new IntersectionObserver((entry) => {
+    //managing bolean so that "removechild" initiated further up does not happen before element has been appended
+    textBox.getBoundingClientRect().top < 0 ? initiated = true : null;
+
     //managing bolean which is used in function running scene 2
     secondSceneInitiation = textBox.getBoundingClientRect().top <= 0 ? true : false;
-    !entry[0].isIntersecting ? InitiatesecondSceneCss() : InitiatesecondSceneCss();
-    console.log(secondSceneInitiation);
-
+    initiated ? (!entry[0].isIntersecting ? InitiatesecondSceneCss() : InitiatesecondSceneCss()) : null;
 },
     {
         root: null,
