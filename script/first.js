@@ -1,69 +1,70 @@
 document.addEventListener("DOMContentLoaded", (event) => {
-  gsap.registerPlugin(ScrollTrigger,ScrollToPlugin,Draggable);
+  gsap.registerPlugin(ScrollTrigger, ScrollToPlugin, Draggable);
 
-let tl = gsap.timeline({
-  scrollTrigger: {
+  let tl = gsap.timeline({
+    scrollTrigger: {
       trigger: ".scene__one",
       pin: true,
       start: "top top",
-      end: "+=" + (window.innerHeight * 8),
+      end: "+=" + (window.innerHeight * 4),
       scrub: 1,
       snap: {
-          snapTo: "labels",
-          duration: { min: 0.2, max: 3 },
-          ease: "power1.in"
+        snapTo: "labels",
+        duration: { min: 0.2, max: 3 },
+        ease: "power1.in"
       }
-      /*onUpdate: self => {
-        if (self.direction === 1 && self.progress > tween.progress()) {
-          tween.progress(self.progress);
-        }
-      } */
-  }
+    }
+  });
+
+  gsap.set("#gas-forest", { opacity: 0 });
+
+  tl.addLabel("intro")
+    .add([
+      gsap.from(".intro__headline", { autoAlpha: 0 }),
+      gsap.from(".forest-intro__patch-two--right", { xPercent: 60 }),
+      gsap.from(".forest-intro__patch-two--left", { xPercent: -60 })
+    ], "sidePatch")
+    .add("headline")
+    .to(".intro__headline", { duration: 0.2, opacity: 0 })
+    .add("deer")
+    .from("#deer", { xPercent: -100 * 10, duration: 3 })
+    .add([
+      gsap.to("#gas-forest", { opacity: 1 }),
+      gsap.from(".scene__fact-box--forest", { yPercent: 300, duration: 5 }) 
+    ], "factForest")
+    .add("removeFactForest")
+    .to(".scene__fact-box--forest", { yPercent: 300, duration: 5 })
+    .add("removeGas")
+    .to("#gas-forest", { opacity: 0 })
+    .add("bulldozer")
+    .to(".bulldozer", {
+      keyframes: {
+        xPercent: [-100, 300],
+        ease: "power1.inOut"
+      },
+      duration: 4
+    });
 });
-
-const gasForest = document.querySelector('#gas_forest');
-gsap.set(gasForest, {opacity: 0}); // set the gas to 0 opacity, making it hidden
-
-const bulldozerTest = document.querySelector(".bulldozer").classList.add("bulldozer--active"); 
-
-tl.addLabel("introStart")
-.add([
-  gsap.from(".intro__headline", { autoAlpha: 0 }),
-  gsap.from("#patch2-right", { xPercent: 60 }),
-  gsap.from("#patch2-left", { xPercent: -60 })
-], "sidePatch")
-.add("headline")
-.to(".intro__headline", { duration: 0.2, opacity: 0 })
-.add([
-  gsap.from("#gas-forest-left", { xPercent: -100, opacity: 0.5, repeat: 2, yoyo: true, duration: 2  }),
-  gsap.from("#gas-forest-right", { xPercent: 100, opacity: 0.5, repeat: 2, yoyo: true,  duration: 2 }) ], "gasForest")
-.add("textBoxAppear")
-.from(".scene__fact-box--forest", { yPercent: 250 }, "<25%") // appear 25% into the earlier label
-.add("textBoxDisappear")
-.to(".scene__fact-box--forest", { yPercent: 250 })
-.add("deer")
-.from("#deer", { xPercent: -100*10, duration: 3})
-.add("bulldozer")
-.add(() => {
-  // Add bulldozer--active class after the #deer tween
-  document.querySelector(".bulldozer").classList.add("bulldozer--active");
-})
-/* .to(".bulldozer", {
-  keyframes: {
-    xPercent: [-100, 300],
-    ease: "power1.inOut"
-  },
-  duration: 4
-}) */
-/* .set(bulldozerTest, ">") */
-});
-
-/* ScrollTrigger.clearScrollMemory();
-window.history.scrollRestoration = "manual"; */
 
 // to reset the ScrollTrigger on page reload
-window.addEventListener("beforeunload", function(e) {
+window.addEventListener("beforeunload", function (e) {
   ScrollTrigger.getAll().forEach(trigger => {
-      trigger.scroll(progress => progress(0));
+    trigger.scroll(progress => progress(0));
   });
 });
+
+// not wanting animations to loop when not necessary
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+
+    const animationState = entry.isIntersecting ? 'running' : 'paused';
+
+    entry.target.querySelector('.leg-set1').style.animationPlayState = animationState;
+    entry.target.querySelector('.leg-set2').style.animationPlayState = animationState;
+    entry.target.querySelector('#scene__gas-forest').style.animationPlayState = animationState;
+  });
+});
+
+const sceneOneElement = document.querySelector('.scene__one');
+
+observer.observe(sceneOneElement);

@@ -1,78 +1,104 @@
 // walking animation for deer
-@keyframes legSet1 {
-    0%, 60%, 100% { transform: skew(0deg); }
-   40% { transform: skew(-10deg); }
-    80% { transform: skew(10deg); }
- }
- 
- @keyframes legSet2 {
-    0%, 60%, 100% { transform: skew(0deg); }
-   40% { transform: skew(10deg); }
-    80% { transform: skew(-10deg); }
-   }
- 
-   #leg-set1 {
+@keyframes legSetOne {
+    0%,
+    60%,
+    100% {
+        transform: skew(0deg);
+    }
+    40% {
+        transform: skew(-10deg);
+    }
+    80% {
+        transform: skew(10deg);
+    }
+}
+
+@keyframes legSetTwo {
+    0%,
+    60%,
+    100% {
+        transform: skew(0deg);
+    }
+    40% {
+        transform: skew(10deg);
+    }
+    80% {
+        transform: skew(-10deg);
+    }
+}
+
+.deer__set--one {
     transform-origin: center;
-    animation: legSet1 1s infinite;
-   }
-   
-   #leg-set2 {
+    animation: legSetOne 1s infinite;
+}
+
+.deer__set--two {
     transform-origin: center;
-    animation: legSet2 1s infinite;
-   }
-
-@keyframes gas {
-    0% { opacity: 1; };
-    100% { opacity: 0; };
+    animation: legSetTwo 1s infinite;
 }
 
-#gas_forest {
-    animation: gas 2s infinite ease-in-out alternate;
+// gas (forest) animation)
+@keyframes gasLeft {
+    0% {
+        transform: translateX(-20%);
+        opacity: 1;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 0;
+    }
 }
 
-@keyframes rotateWheel {
-    from{ transform: rotate(-360deg); }
-     to{ transform: rotate(360deg); }
-  }
-  
-  .wheel-test {
-   transform-origin: center;
-   animation: rotateWheel 2s infinite;
-  }
-
-
-
-.bulldozer__container {
-    position: relative;
-    width: 100%;
-    height: 100%;
+@keyframes gasRight {
+    0% {
+        transform: translateX(20%);
+        opacity: 1;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 0;
+    }
 }
 
-.bz__suspension {
-animation: rocking 1s alternate infinite;
+.gas-forest--left {
+    animation: gasLeft 2s infinite ease-in-out alternate;
 }
 
-@keyframes rocking  {
-    from { transform: rotate(0) translateY(-20px); }
-     to { transform: rotate(2deg) translateY(-30px); }
-  }
+.gas-forest--right {
+    animation: gasRight 2s infinite ease-in-out alternate;
+}
 
-  @keyframes upDown  {
-    from { transform:translateY(0); }
-     to { transform: translateY(10px); }
-  }
+// bulldozer animation
+@keyframes rocking {
+    from {
+        transform: rotate(0) translateY(-20px);
+    }
+    to {
+        transform: rotate(2deg) translateY(-30px);
+    }
+}
 
-  @keyframes pipeShake  {
-    0%, 50%, 100% { transform:translateX(0); }
-    25% { transform: translateX(1px); }
-    75% { transform: translateX(-1px);}
-  }
+@keyframes upDown {
+    from {
+        transform: translateY(0);
+    }
+    to {
+        transform: translateY(10px);
+    }
+}
 
-  .bz__base {
-    animation: upDown 1s alternate infinite;
-  }
+@keyframes pipeShake {
+    0%,
+    50%,
+    100% {
+        transform: translateX(0);
+    }
+    25% {
+        transform: translateX(2px);
+    }
+    75% {
+        transform: translateX(-2px);
+    }
+}
 
-  .bz__pipe {
-    animation: pipeShake 1s linear infinite;
-  }
-  
+
