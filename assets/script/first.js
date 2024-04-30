@@ -30,7 +30,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
     .from("#deer", { xPercent: -100 * 10, duration: 3 })
     .add([
       gsap.to("#gas-forest", { opacity: 1 }),
-      gsap.from(".scene__fact-box--forest", { yPercent: 300, duration: 5 }) 
+      gsap.from(".scene__fact-box--forest", { yPercent: 300, duration: 5 })
     ], "factForest")
     .add("removeFactForest")
     .to(".scene__fact-box--forest", { yPercent: 300, duration: 5 })
@@ -56,12 +56,7 @@ window.addEventListener("beforeunload", function (e) {
 // not wanting animations to loop when not necessary
 const observer = new IntersectionObserver(entries => {
   entries.forEach(entry => {
-
     const animationState = entry.isIntersecting ? 'running' : 'paused';
-
-    entry.target.querySelector('.leg-set1').style.animationPlayState = animationState;
-    entry.target.querySelector('.leg-set2').style.animationPlayState = animationState;
-    entry.target.querySelector('#scene__gas-forest').style.animationPlayState = animationState;
   });
 });
 
