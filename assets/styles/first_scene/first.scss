@@ -42,7 +42,7 @@ body::-webkit-scrollbar {
   font-size: 1.5rem;
   position: absolute;
   left: 50%;
-  bottom: 25vw;
+  bottom: -25vw;
   padding: 1.5rem;
   transform: translate(-50%, 50%);
   width: 40ch;
@@ -93,10 +93,18 @@ body::-webkit-scrollbar {
   fill: colors.$forest-greenV4;
 }
 
+#forest-intro {
+  width: 105%;
+  left: -2.5%;
+}
+
 .forest-intro__trees {
   bottom: 2vw;
   fill: colors.$forest-greenV4;
+  width: 105%;
+  left: -2.5%;
 }
+
 
 #gas-forest {
   bottom: 32vw;
@@ -155,9 +163,9 @@ fill: colors.$carbon-grayV1;
   }
 }
 
-/*
+
 @keyframes bulldozerDrive {
   100%{
     left: 200%;
   }
-*/
+}

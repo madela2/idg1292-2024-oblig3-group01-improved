@@ -85,6 +85,21 @@
     transform: translateX(-2px);
   }
 }
+@keyframes shake {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  25%, 75% {
+    transform: translateX(-2%);
+  }
+  50% {
+    transform: translateX(2%);
+  }
+}
+.shake-element {
+  animation: shake 0.5s infinite;
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -123,7 +138,7 @@ body::-webkit-scrollbar {
   font-size: 1.5rem;
   position: absolute;
   left: 50%;
-  bottom: 25vw;
+  bottom: -25vw;
   padding: 1.5rem;
   transform: translate(-50%, 50%);
   width: 40ch;
@@ -173,9 +188,16 @@ body::-webkit-scrollbar {
   fill: #1e5e4b;
 }
 
+#forest-intro {
+  width: 105%;
+  left: -2.5%;
+}
+
 .forest-intro__trees {
   bottom: 2vw;
   fill: #1e5e4b;
+  width: 105%;
+  left: -2.5%;
 }
 
 #gas-forest {
@@ -225,9 +247,8 @@ body::-webkit-scrollbar {
   fill: #C1A35E;
 }
 
-/*
 @keyframes bulldozerDrive {
-  100%{
+  100% {
     left: 200%;
   }
-*//*# sourceMappingURL=first.css.map */
+}/*# sourceMappingURL=first.css.map */
