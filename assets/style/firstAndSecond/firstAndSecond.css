@@ -76,13 +76,12 @@ html {
   top: calc(65% + var(--paragraph-pos, 65%));
 }
 .scene__paragraph--twoactive {
-  position: absolute;
   opacity: calc(0 + var(--paragraph-opacity, 1));
   top: calc(65% + var(--paragraph-pos, 65%));
 }
-.scene__paragraph--disabled {
-  top: 0%;
-  opacity: 0;
+.scene__paragraph--threeactive {
+  opacity: calc(0 + var(--paragraph-opacity, 1));
+  top: calc(75% + var(--paragraph-pos, 75%));
 }
 .scene__one {
   position: absolute;
@@ -278,14 +277,16 @@ html {
   transition: 1s;
   bottom: 0%;
   left: 0%;
-  animation: waterAnimation 2s forwards 3.5s, waterwaving 3s ease-in-out infinite 5.3s;
+}
+.scene__water--active {
+  animation: waterAnimation 2s forwards, waterwaving 3s ease-in-out infinite 5.3s;
 }
 .scene__clouds {
   transform: translate(-50%, -50%);
   top: calc((20vh + 3vw) / 2);
   left: 50%;
   position: absolute;
-  animation: cloudsAppear 10s forwards, cloudsGrow 30s forwards 13s;
+  animation: cloudsAppear 5s forwards, cloudsGrow 30s forwards 13s;
 }
 .scene__cloud {
   position: absolute;
@@ -293,6 +294,9 @@ html {
   background-color: grey;
   opacity: 0.99;
   box-shadow: 0px 0px 1.5vw 2vw rgb(128, 128, 128);
+}
+.scene__cloud--active {
+  animation: cloudsTurnGreen 3s forwards;
 }
 .scene__cloud--one {
   left: 3vw;
@@ -343,7 +347,7 @@ html {
   display: block;
   height: 30%;
   box-shadow: 0 0.3vw 20px 3px rgba(0, 0, 0, 0);
-  animation: roadAnimation 1s forwards 2s;
+  animation: roadAnimation 1s forwards 1s;
   opacity: 0;
 }
 
@@ -617,6 +621,13 @@ html {
         height: 100%;
     }
 }*/
+@keyframes cloudsTurnGreen {
+  100% {
+    opacity: 1;
+    background-color: rgb(70, 84, 70);
+    box-shadow: 0px 0px 1.5vw 2vw rgb(70, 84, 70);
+  }
+}
 @keyframes cloudsAppear {
   0% {
     opacity: 0;
