@@ -100,7 +100,7 @@ html {
     }
 
     &__second {
-        display: flex;
+        display: none;
         align-items: flex-end;
         flex-direction: row;
         flex-wrap: wrap;
@@ -109,6 +109,7 @@ html {
         top: 0;
         left: 0;
         position: absolute;
+        display: flex;
         animation: 10s redSkyAnimation forwards;
     }
 
@@ -347,7 +348,7 @@ html {
         opacity: 0;
     }
 
-    &__pollution {
+    /*&__pollution {
         background-color: grey;
         position: absolute;
         box-shadow: 0px 0px 1vw 1vw grey;
@@ -362,29 +363,29 @@ html {
             animation: one-pollutionAnimation 4s infinite;
         }
 
-        &--two {
-            width: 1.5%;
-            left: 25%;
-            animation: two-pollutionAnimation 3s infinite;
-        }
-
-        &--three {
-            left: 45%;
-            animation: three-pollutionAnimation 4s infinite;
-        }
-
-        &--four {
-            width: 1%;
-            left: 70%;
-            animation: four-pollutionAnimation 2s infinite;
-        }
-
-        &--five {
-            width: 3.5%;
-            left: 80%;
-            animation: five-pollutionAnimation 4s infinite;
-        }
+    &--two {
+        width: 1.5%;
+        left: 25%;
+        animation: two-pollutionAnimation 3s infinite;
     }
+
+    &--three {
+        left: 45%;
+        animation: three-pollutionAnimation 4s infinite;
+    }
+
+    &--four {
+        width: 1%;
+        left: 70%;
+        animation: four-pollutionAnimation 2s infinite;
+    }
+
+    &--five {
+        width: 3.5%;
+        left: 80%;
+        animation: five-pollutionAnimation 4s infinite;
+    }
+}*/
 }
 
 .forest {
@@ -725,7 +726,7 @@ html {
     }
 }
 
-@keyframes waterwaving {
+/*@keyframes waterwaving {
 
     0% {
         height: 100%;
@@ -738,7 +739,7 @@ html {
     100% {
         height: 100%;
     }
-}
+}*/
 
 @keyframes cloudsAppear {
 
@@ -762,7 +763,7 @@ html {
     }
 }
 
-@keyframes cloudsGrow {
+/*@keyframes cloudsGrow {
     from {
         height: calc(20vh + 3vw);
     }
@@ -770,7 +771,7 @@ html {
     to {
         height: calc(50vh + 3vw);
     }
-}
+}*/
 
 @keyframes roadAnimation {
     0% {
