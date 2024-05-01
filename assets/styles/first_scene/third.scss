@@ -1,0 +1,138 @@
+@use "colors.scss";
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+html {
+  font-size: 1vw;
+  font-family: "Acme";
+  cursor: url(../../svgs/circle.svg) 15 15, move;
+}
+
+body {
+  user-select: none; // make text non-selectable
+}
+
+body::-webkit-scrollbar {
+  display: none;
+}
+
+.scene {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+
+  &__three--one {
+    background-color: colors.$forest-bg;
+  }
+
+  &__three--three {
+    background-color: colors.$forest-greenV4;
+  }
+}
+
+@keyframes forestOutroStart {
+  0% {
+    transform: translateY(50%);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.forest-outro {
+  animation: forestOutroStart 1s linear;
+  &__patch-four {
+    fill: colors.$forest-greenV1;
+  }
+
+  &__patch-three {
+    fill: colors.$forest-greenV2;
+  }
+
+  &__patch-two {
+    fill: colors.$forest-greenV3;
+  }
+
+  &__patch-one {
+    fill: colors.$forest-greenV4;
+  }
+}
+
+@keyframes treeGrowthOne {
+    0%,
+    9% {
+      opacity: 0;
+    }
+  
+    10%,
+    100% {
+      opacity: 1;
+    }
+  }
+
+@keyframes treeGrowthTwo {
+  0%,
+  29% {
+    opacity: 0;
+  }
+
+  30%,
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes treeGrowthThree {
+  0%,
+  49% {
+    opacity: 0;
+  }
+
+  50%,
+  100% {
+    opacity: 1;
+  }
+}
+
+.tree-growth {
+  &__stage--one {
+    animation: treeGrowthOne 7s linear;
+  }
+
+  &__stage--two {
+    animation: treeGrowthTwo 7s linear;
+  }
+
+  &__stage--three {
+    animation: treeGrowthThree 7s linear;
+  }
+}
+
+.tree-growth__dividers {
+   fill: colors.$forest-greenV4;
+}
+
+.tree-growth__background {
+    fill: colors.$forest-bg;
+}
+
+.tree-growth__mountain {
+    fill: colors.$forest-greenV1;
+
+    &-shadow {
+        fill: colors.$forest-greenV1_shade;
+    }
+}
+
+.tree-growth__grass-base, .tree-growth__leaves, .tree-growth__grass-front {
+    fill: colors.$forest-greenV3;
+}
+
+.tree-growth__grass-back {
+    fill: colors.$forest-greenV2;
+}

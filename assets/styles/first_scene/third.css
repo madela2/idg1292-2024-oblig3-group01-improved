@@ -1,0 +1,114 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+html {
+  font-size: 1vw;
+  font-family: "Acme";
+  cursor: url(../../svgs/circle.svg) 15 15, move;
+}
+
+body {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+}
+
+body::-webkit-scrollbar {
+  display: none;
+}
+
+.scene {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+.scene__three--one {
+  background-color: #e8ecea;
+}
+.scene__three--three {
+  background-color: #1e5e4b;
+}
+
+@keyframes forestOutroStart {
+  0% {
+    transform: translateY(50%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+.forest-outro {
+  animation: forestOutroStart 1s linear;
+}
+.forest-outro__patch-four {
+  fill: #8bb6a9;
+}
+.forest-outro__patch-three {
+  fill: #4e9b85;
+}
+.forest-outro__patch-two {
+  fill: #287561;
+}
+.forest-outro__patch-one {
+  fill: #1e5e4b;
+}
+
+@keyframes treeGrowthOne {
+  0%, 9% {
+    opacity: 0;
+  }
+  10%, 100% {
+    opacity: 1;
+  }
+}
+@keyframes treeGrowthTwo {
+  0%, 29% {
+    opacity: 0;
+  }
+  30%, 100% {
+    opacity: 1;
+  }
+}
+@keyframes treeGrowthThree {
+  0%, 49% {
+    opacity: 0;
+  }
+  50%, 100% {
+    opacity: 1;
+  }
+}
+.tree-growth__stage--one {
+  animation: treeGrowthOne 7s linear;
+}
+.tree-growth__stage--two {
+  animation: treeGrowthTwo 7s linear;
+}
+.tree-growth__stage--three {
+  animation: treeGrowthThree 7s linear;
+}
+
+.tree-growth__dividers {
+  fill: #1e5e4b;
+}
+
+.tree-growth__background {
+  fill: #e8ecea;
+}
+
+.tree-growth__mountain {
+  fill: #8bb6a9;
+}
+.tree-growth__mountain-shadow {
+  fill: #81A498;
+}
+
+.tree-growth__grass-base, .tree-growth__leaves, .tree-growth__grass-front {
+  fill: #287561;
+}
+
+.tree-growth__grass-back {
+  fill: #4e9b85;
+}/*# sourceMappingURL=third.css.map */
