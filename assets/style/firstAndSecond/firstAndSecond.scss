@@ -11,7 +11,6 @@
 }
 
 html {
-    font-size: 1vw;
     font-family: "Acme";
 }
 
@@ -27,28 +26,31 @@ html {
 }
 
 .scene {
-    overflow-x: hidden;
+    overflow: hidden;
     position: relative;
     height: 100%;
 
     &__paragraph {
-        &--one {
-            background-color: white;
-            font-size: 1.5rem;
-            position: absolute;
-            left: 25%;
-            width: 50%;
-            top: 65%;
-            padding: 5% 5%;
-            opacity: 0;
-            text-align: center;
-            z-index: 1;
-        }
+        background-color: white;
+        font-size: clamp(14px, 1.5vw, 20px);
+        position: absolute;
+        left: 25%;
+        width: 50%;
+        top: 65%;
+        padding: 5%;
+        opacity: 0;
+        text-align: center;
+        z-index: 1;
 
-        &--active {
+        &--oneactive {
             opacity: calc(0 + var(--paragraph-opacity, 1));
             top: calc(65% + var(--paragraph-pos, 65%));
+        }
 
+        &--twoactive {
+            position: absolute;
+            opacity: calc(0 + var(--paragraph-opacity, 1));
+            top: calc(65% + var(--paragraph-pos, 65%));
         }
 
         &--disabled {
@@ -395,20 +397,21 @@ html {
     &__deer {
         bottom: 14vw;
         left: 0%;
-        width: 10%;
+        width: 5%;
         fill: colors.$forest-greenV4;
-        animation: deerBodyMove 6s ease-in forwards;
+        opacity: 0;
+        animation: deerBodyMove 6s ease-in forwards 0.3s, deerOpacity 0.5s forwards 0.3s;
     }
 
     &__legs {
         &--one {
             transform-origin: center;
-            animation: deerLegsOne 0.8s infinite;
+            animation: deerLegsOne 0.5s infinite;
         }
 
         &--two {
             transform-origin: center;
-            animation: deerLegsTwo 0.8s infinite;
+            animation: deerLegsTwo 0.5s infinite;
         }
     }
 
@@ -448,6 +451,11 @@ html {
             fill: colors.$forest-greenV1;
         }
 
+        &--grey {
+            transition: 0.2s;
+            opacity: 0.4;
+        }
+
         &--left {
             transform: translateX(calc(-50% - var(--patch-pos, 0px)));
             position: absolute;
@@ -471,7 +479,7 @@ html {
 
 
         &--active {
-            animation: bulldozerDrive 1.75s linear forwards;
+            animation: bulldozerDrive 1.3s linear forwards;
         }
     }
 }
@@ -508,6 +516,18 @@ html {
 @keyframes headLinePartOneAnimation {
     100% {
         left: calc(50% - 20vw);
+    }
+}
+
+@keyframes deerOpacity {
+    0% {
+        width: 5%;
+        opacity: 0;
+    }
+
+    100% {
+        width: 10%;
+        opacity: 1;
     }
 }
 
