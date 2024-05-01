@@ -25,12 +25,13 @@ body::-webkit-scrollbar {
   height: 100vh;
   overflow: hidden;
 
-  &__three--one {
+  &__three--one,
+  &__three--three {
     background-color: colors.$forest-bg;
   }
 
-  &__three--three {
-    background-color: colors.$forest-greenV4;
+  &__three--two {
+    background-color: #dfefec;
   }
 }
 
@@ -64,16 +65,16 @@ body::-webkit-scrollbar {
 }
 
 @keyframes treeGrowthOne {
-    0%,
-    9% {
-      opacity: 0;
-    }
-  
-    10%,
-    100% {
-      opacity: 1;
-    }
+  0%,
+  9% {
+    opacity: 0;
   }
+
+  10%,
+  100% {
+    opacity: 1;
+  }
+}
 
 @keyframes treeGrowthTwo {
   0%,
@@ -114,25 +115,130 @@ body::-webkit-scrollbar {
 }
 
 .tree-growth__dividers {
-   fill: colors.$forest-greenV4;
-}
-
-.tree-growth__background {
-    fill: colors.$forest-bg;
+  fill: colors.$forest-bg;
 }
 
 .tree-growth__mountain {
-    fill: colors.$forest-greenV1;
+  fill: colors.$forest-greenV1;
 
-    &-shadow {
-        fill: colors.$forest-greenV1_shade;
-    }
+  &-shadow {
+    fill: colors.$forest-greenV1_shade;
+  }
 }
 
-.tree-growth__grass-base, .tree-growth__leaves, .tree-growth__grass-front {
-    fill: colors.$forest-greenV3;
+.tree-growth__grass-base,
+.tree-growth__leaves,
+.tree-growth__grass-front {
+  fill: colors.$forest-greenV3;
 }
 
 .tree-growth__grass-back {
-    fill: colors.$forest-greenV2;
+  fill: colors.$forest-greenV2;
+}
+
+.tree-growth__tree-base,
+.tree-growth__leaves-mid {
+  fill: colors.$forest-greenV4;
+}
+
+.tree-growth__tree-base--two {
+  fill: url(#linear-gradient);
+}
+
+.tree-growth__tree-base--three {
+  fill: colors.$dark-woodV1;
+}
+
+.tree-growth__leaves-dark {
+  fill: colors.$forest-greenV5;
+}
+
+@keyframes leafMoveLeft {
+    0% {
+        transform: rotate(0);
+    }
+    
+    100% {
+        transform: translate(0) rotate(-5deg);
+    }
+    }
+
+    @keyframes leafMoveLeft2 {
+        0% {
+            transform: rotate(0);
+        }
+        
+        100% {
+            transform: translate(0) rotate(-2deg);
+        }
+        }
+
+        
+@keyframes leafMoveRight {
+0% {
+    transform: rotate(0);
+}
+
+100% {
+    transform: translate(0) rotate(5deg);
+}
+}
+
+@keyframes leafMoveRight2 {
+    0% {
+        transform: skew(-0.15deg);
+    }
+    
+    50% {
+        transform: skew(0deg);
+    }
+
+    100% {
+        transform: skew(0.03deg);
+    }
+    }
+
+.forest-seed__mountains {
+  fill: colors.$sky-blueV1;
+}
+
+.forest-seed__soil {
+  fill: colors.$earth-brownV1;
+
+  &-mid {
+    fill: colors.$earth-brownV2;
+  }
+
+  &-dark {
+    fill: colors.$earth-brownV3;
+  }
+}
+
+.forest-seed__leaves svg {
+    fill: colors.$forest-greenV3;
+    transform-origin: center;
+    width: 10%;
+}
+
+svg.forest-seed__leaf-one {
+    bottom: 31vw;
+    right: 38%;
+    animation: leafMoveLeft 1s alternate infinite;
+}
+
+svg.forest-seed__leaf-two {
+    bottom: 36.5vw;
+    right: 26%;
+    animation: leafMoveLeft2 1s alternate infinite;
+}
+
+svg.forest-seed__leaf-three {
+    bottom: 30vw;
+    right: 22%;
+    animation: leafMoveRight 1s alternate infinite;
+}
+
+.forest-seed__tree-base {
+    width: 20%;
+    animation: leafMoveRight2 1s alternate ease-in-out infinite;
 }

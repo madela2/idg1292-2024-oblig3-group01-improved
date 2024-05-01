@@ -25,11 +25,11 @@ body::-webkit-scrollbar {
   height: 100vh;
   overflow: hidden;
 }
-.scene__three--one {
+.scene__three--one, .scene__three--three {
   background-color: #e8ecea;
 }
-.scene__three--three {
-  background-color: #1e5e4b;
+.scene__three--two {
+  background-color: #dfefec;
 }
 
 @keyframes forestOutroStart {
@@ -91,10 +91,6 @@ body::-webkit-scrollbar {
 }
 
 .tree-growth__dividers {
-  fill: #1e5e4b;
-}
-
-.tree-growth__background {
   fill: #e8ecea;
 }
 
@@ -105,10 +101,107 @@ body::-webkit-scrollbar {
   fill: #81A498;
 }
 
-.tree-growth__grass-base, .tree-growth__leaves, .tree-growth__grass-front {
+.tree-growth__grass-base,
+.tree-growth__leaves,
+.tree-growth__grass-front {
   fill: #287561;
 }
 
 .tree-growth__grass-back {
   fill: #4e9b85;
+}
+
+.tree-growth__tree-base,
+.tree-growth__leaves-mid {
+  fill: #1e5e4b;
+}
+
+.tree-growth__tree-base--two {
+  fill: url(#linear-gradient);
+}
+
+.tree-growth__tree-base--three {
+  fill: #5C584D;
+}
+
+.tree-growth__leaves-dark {
+  fill: #1C513F;
+}
+
+@keyframes leafMoveLeft {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: translate(0) rotate(-5deg);
+  }
+}
+@keyframes leafMoveLeft2 {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: translate(0) rotate(-2deg);
+  }
+}
+@keyframes leafMoveRight {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: translate(0) rotate(5deg);
+  }
+}
+@keyframes leafMoveRight2 {
+  0% {
+    transform: skew(-0.15deg);
+  }
+  50% {
+    transform: skew(0deg);
+  }
+  100% {
+    transform: skew(0.03deg);
+  }
+}
+.forest-seed__mountains {
+  fill: #C6DBDB;
+}
+
+.forest-seed__soil {
+  fill: #967E69;
+}
+.forest-seed__soil-mid {
+  fill: #826D5E;
+}
+.forest-seed__soil-dark {
+  fill: #64554A;
+}
+
+.forest-seed__leaves svg {
+  fill: #287561;
+  transform-origin: center;
+  width: 10%;
+}
+
+svg.forest-seed__leaf-one {
+  bottom: 31vw;
+  right: 38%;
+  animation: leafMoveLeft 1s alternate infinite;
+}
+
+svg.forest-seed__leaf-two {
+  bottom: 36.5vw;
+  right: 26%;
+  animation: leafMoveLeft2 1s alternate infinite;
+}
+
+svg.forest-seed__leaf-three {
+  bottom: 30vw;
+  right: 22%;
+  animation: leafMoveRight 1s alternate infinite;
+}
+
+.forest-seed__tree-base {
+  width: 20%;
+  animation: leafMoveRight2 1s alternate ease-in-out infinite;
 }/*# sourceMappingURL=third.css.map */
