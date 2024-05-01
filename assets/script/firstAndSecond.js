@@ -10,8 +10,7 @@ const leftPatchVal = document.querySelector('.forest__patch--left');
 const parOne = document.querySelector('.scene__paragraph--one');
 const headline = document.querySelector('.scene__headline');
 let activeParOpacity = 0, forestPatchPosition = 0, paragraphOnePosition = 0;
-let activeParagraph;
-let secondSceneInitiation = false;
+let activeParagraph, secondSceneInitiation = false;
 
 scene.removeChild(secondScene);
 
@@ -29,11 +28,11 @@ function sceneOnePhaseTwo(event) {
     activeParagraph = document.querySelector('.scene__paragraph--active');
     //DONT modify below line: Very hard to figure out! Calculation value used in scss for paragraph opacity.
     activeParOpacity = ((((window.innerHeight / window.innerHeight * 100) - (activeParagraph.getBoundingClientRect().top / window.innerHeight * 100 + activeParagraph.getBoundingClientRect().height / window.innerHeight * 100)) / 120) * 2) * 2;
-    //gives value to variable used in scssso position is done in css: To allow for scrolling without scrolling the webpage or having overflow
+    //gives value to variables used in scssso position is done in css: To allow for scrolling without scrolling the webpage or having overflow
     event.deltaY < 0 ? paragraphOnePosition++ : paragraphOnePosition--;
     activeParagraph.style.setProperty('--paragraph-pos', `${paragraphOnePosition.toString() * 15}px`);
     activeParagraph.style.setProperty('--paragraph-opacity', `${activeParOpacity.toString()}`);
-    headline.style.setProperty('--paragraph-opacity', `${activeParOpacity.toString()}`);
+    headline.style.setProperty('--paragraph-opacity', [headline.getBoundingClientRect().top >= parOne.getBoundingClientRect().top ? 1 : 0]);
 }
 
 document.addEventListener('wheel', (event) => {

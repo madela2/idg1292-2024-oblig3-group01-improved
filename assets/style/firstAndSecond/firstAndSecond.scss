@@ -27,6 +27,7 @@ html {
 }
 
 .scene {
+    overflow-x: hidden;
     position: relative;
     height: 100%;
 
@@ -45,7 +46,7 @@ html {
         }
 
         &--active {
-            opacity: calc(0 + var(--paragraph-opacity, 0));
+            opacity: calc(0 + var(--paragraph-opacity, 1));
             top: calc(65% + var(--paragraph-pos, 65%));
 
         }
