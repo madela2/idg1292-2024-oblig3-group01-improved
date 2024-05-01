@@ -41,6 +41,7 @@ html {
         opacity: 0;
         text-align: center;
         z-index: 1;
+        box-shadow: 0px 0px 2vw 1vw rgba(0, 0, 0, 0.381);
 
         &--oneactive {
             opacity: calc(0 + var(--paragraph-opacity, 1));
@@ -122,43 +123,43 @@ html {
         padding: 0;
 
         &--one {
-            @include buildingCallAnimations(one-buildingAnimation 1s forwards 0.3s);
+            @include buildingCallAnimations(one-buildingAnimation 0.7s forwards 0.3s);
             width: 6%;
         }
 
         &--two {
-            @include buildingCallAnimations(two-buildingAnimation 1s forwards 0.3s);
+            @include buildingCallAnimations(two-buildingAnimation 0.7s forwards 0.3s);
             width: 13%;
         }
 
         &--three {
-            @include buildingCallAnimations(three-buildingAnimation 1s forwards 0.3s);
+            @include buildingCallAnimations(three-buildingAnimation 0.7s forwards 0.3s);
             width: 15%;
             gap: 8%;
         }
 
         &--four {
-            @include buildingCallAnimations(four-buildingAnimation 1s forwards 0.3s);
+            @include buildingCallAnimations(four-buildingAnimation 0.7s forwards 0.3s);
             width: 13.5%;
         }
 
         &--five {
-            @include buildingCallAnimations(five-buildingAnimation 1s forwards 0.3s);
+            @include buildingCallAnimations(five-buildingAnimation 0.7s forwards 0.3s);
             width: 13.5%;
         }
 
         &--six {
-            @include buildingCallAnimations(six-buildingAnimation 1s forwards 0.3s);
+            @include buildingCallAnimations(six-buildingAnimation 0.7s forwards 0.3s);
             width: 10%;
         }
 
         &--seven {
-            @include buildingCallAnimations(seven-buildingAnimation 1s forwards 0.3s);
+            @include buildingCallAnimations(seven-buildingAnimation 0.7s forwards 0.3s);
             width: 7%;
         }
 
         &--eight {
-            @include buildingCallAnimations(eight-buildingAnimation 1s forwards 0.3s);
+            @include buildingCallAnimations(eight-buildingAnimation 0.7s forwards 0.3s);
             width: 10%;
         }
 
@@ -177,7 +178,7 @@ html {
                 bottom: 0;
                 height: 0%;
                 left: 0;
-                animation: nine-buildingAnimation 1s forwards 0.3s;
+                animation: nine-buildingAnimation 0.7s forwards 0.3s;
                 background-color: #232C43;
             }
         }
@@ -188,39 +189,39 @@ html {
         opacity: 0;
 
         &--first {
-            animation: first-window 0.8s forwards 1s, windowsOnAnimation 0.2s forwards 2.5s;
+            animation: first-window 0.6s forwards 0.7s, windowsOnAnimation 0.2s forwards 1.5s;
         }
 
         &--second {
-            animation: second-window 0.8s forwards 1s, windowsOnAnimation 0.2s forwards 2.5s;
+            animation: second-window 0.6s forwards 0.7s, windowsOnAnimation 0.2s forwards 1.5s;
         }
 
         &--third {
-            animation: third-window 0.8s forwards 1s, windowsOnAnimation 0.2s forwards 2.5s;
+            animation: third-window 0.6s forwards 0.7s, windowsOnAnimation 0.2s forwards 1.5s;
         }
 
         &--four {
-            animation: fourth-window 0.8s forwards 1s, windowsOnAnimation 0.2s forwards 2.5s;
+            animation: fourth-window 0.6s forwards 0.7s, windowsOnAnimation 0.2s forwards 1.5s;
         }
 
         &--five {
-            animation: fift-window 0.8s forwards 1s, windowsOnAnimation 0.2s forwards 2.5s;
+            animation: fift-window 0.6s forwards 0.7s, windowsOnAnimation 0.2s forwards 1.5s;
         }
 
         &--six {
-            animation: sixth-window 0.8s forwards 1s, windowsOnAnimation 0.2s forwards 2.5s;
+            animation: sixth-window 0.6s forwards 0.7s, windowsOnAnimation 0.2s forwards 1.5s;
         }
 
         &--seven {
-            animation: seventh-window 0.8s forwards 1s, windowsOnAnimation 0.2s forwards 2.5s;
+            animation: seventh-window 0.6s forwards 0.7s, windowsOnAnimation 0.2s forwards 1.5s;
         }
 
         &--eight {
-            animation: eighth-window 0.8s forwards 1s, windowsOnAnimation 0.2s forwards 2.5s;
+            animation: eighth-window 0.6s forwards 0.7s, windowsOnAnimation 0.2s forwards 1.5s;
         }
 
         &--nine {
-            animation: ninth-window 0.8s forwards 1s, windowsOnAnimation 0.2s forwards 2.5s;
+            animation: ninth-window 0.6s forwards 0.7s, windowsOnAnimation 0.2s forwards 1.5s;
         }
 
         &--small {
@@ -351,7 +352,8 @@ html {
         display: block;
         height: 30%;
         box-shadow: 0 0.3vw 20px 3px rgba(0, 0, 0, 0);
-        animation: roadAnimation 1s forwards 1s;
+        margin: 0 auto;
+        animation: roadAnimation 0.7s forwards 1s;
         opacity: 0;
     }
 

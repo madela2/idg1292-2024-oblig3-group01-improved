@@ -70,6 +70,7 @@ html {
   opacity: 0;
   text-align: center;
   z-index: 1;
+  box-shadow: 0px 0px 2vw 1vw rgba(0, 0, 0, 0.381);
 }
 .scene__paragraph--oneactive {
   opacity: calc(0 + var(--paragraph-opacity, 1));
@@ -141,50 +142,50 @@ html {
   padding: 0;
 }
 .scene__building--one {
-  animation: one-buildingAnimation 1s forwards 0.3s;
+  animation: one-buildingAnimation 0.7s forwards 0.3s;
   padding: 0;
   background-color: #232C43;
   width: 6%;
 }
 .scene__building--two {
-  animation: two-buildingAnimation 1s forwards 0.3s;
+  animation: two-buildingAnimation 0.7s forwards 0.3s;
   padding: 0;
   background-color: #232C43;
   width: 13%;
 }
 .scene__building--three {
-  animation: three-buildingAnimation 1s forwards 0.3s;
+  animation: three-buildingAnimation 0.7s forwards 0.3s;
   padding: 0;
   background-color: #232C43;
   width: 15%;
   gap: 8%;
 }
 .scene__building--four {
-  animation: four-buildingAnimation 1s forwards 0.3s;
+  animation: four-buildingAnimation 0.7s forwards 0.3s;
   padding: 0;
   background-color: #232C43;
   width: 13.5%;
 }
 .scene__building--five {
-  animation: five-buildingAnimation 1s forwards 0.3s;
+  animation: five-buildingAnimation 0.7s forwards 0.3s;
   padding: 0;
   background-color: #232C43;
   width: 13.5%;
 }
 .scene__building--six {
-  animation: six-buildingAnimation 1s forwards 0.3s;
+  animation: six-buildingAnimation 0.7s forwards 0.3s;
   padding: 0;
   background-color: #232C43;
   width: 10%;
 }
 .scene__building--seven {
-  animation: seven-buildingAnimation 1s forwards 0.3s;
+  animation: seven-buildingAnimation 0.7s forwards 0.3s;
   padding: 0;
   background-color: #232C43;
   width: 7%;
 }
 .scene__building--eight {
-  animation: eight-buildingAnimation 1s forwards 0.3s;
+  animation: eight-buildingAnimation 0.7s forwards 0.3s;
   padding: 0;
   background-color: #232C43;
   width: 10%;
@@ -203,7 +204,7 @@ html {
   bottom: 0;
   height: 0%;
   left: 0;
-  animation: nine-buildingAnimation 1s forwards 0.3s;
+  animation: nine-buildingAnimation 0.7s forwards 0.3s;
   background-color: #232C43;
 }
 .scene__window {
@@ -211,31 +212,31 @@ html {
   opacity: 0;
 }
 .scene__window--first {
-  animation: first-window 0.8s forwards 1s, windowsOnAnimation 0.2s forwards 2.5s;
+  animation: first-window 0.6s forwards 0.7s, windowsOnAnimation 0.2s forwards 1.5s;
 }
 .scene__window--second {
-  animation: second-window 0.8s forwards 1s, windowsOnAnimation 0.2s forwards 2.5s;
+  animation: second-window 0.6s forwards 0.7s, windowsOnAnimation 0.2s forwards 1.5s;
 }
 .scene__window--third {
-  animation: third-window 0.8s forwards 1s, windowsOnAnimation 0.2s forwards 2.5s;
+  animation: third-window 0.6s forwards 0.7s, windowsOnAnimation 0.2s forwards 1.5s;
 }
 .scene__window--four {
-  animation: fourth-window 0.8s forwards 1s, windowsOnAnimation 0.2s forwards 2.5s;
+  animation: fourth-window 0.6s forwards 0.7s, windowsOnAnimation 0.2s forwards 1.5s;
 }
 .scene__window--five {
-  animation: fift-window 0.8s forwards 1s, windowsOnAnimation 0.2s forwards 2.5s;
+  animation: fift-window 0.6s forwards 0.7s, windowsOnAnimation 0.2s forwards 1.5s;
 }
 .scene__window--six {
-  animation: sixth-window 0.8s forwards 1s, windowsOnAnimation 0.2s forwards 2.5s;
+  animation: sixth-window 0.6s forwards 0.7s, windowsOnAnimation 0.2s forwards 1.5s;
 }
 .scene__window--seven {
-  animation: seventh-window 0.8s forwards 1s, windowsOnAnimation 0.2s forwards 2.5s;
+  animation: seventh-window 0.6s forwards 0.7s, windowsOnAnimation 0.2s forwards 1.5s;
 }
 .scene__window--eight {
-  animation: eighth-window 0.8s forwards 1s, windowsOnAnimation 0.2s forwards 2.5s;
+  animation: eighth-window 0.6s forwards 0.7s, windowsOnAnimation 0.2s forwards 1.5s;
 }
 .scene__window--nine {
-  animation: ninth-window 0.8s forwards 1s, windowsOnAnimation 0.2s forwards 2.5s;
+  animation: ninth-window 0.6s forwards 0.7s, windowsOnAnimation 0.2s forwards 1.5s;
 }
 .scene__window--small {
   height: 11%;
@@ -347,7 +348,8 @@ html {
   display: block;
   height: 30%;
   box-shadow: 0 0.3vw 20px 3px rgba(0, 0, 0, 0);
-  animation: roadAnimation 1s forwards 1s;
+  margin: 0 auto;
+  animation: roadAnimation 0.7s forwards 1s;
   opacity: 0;
 }
 
