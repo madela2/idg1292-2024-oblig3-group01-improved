@@ -142,7 +142,7 @@ body::-webkit-scrollbar {
 }
 
 .tree-growth__tree-base--two {
-  fill: url(#linear-gradient);
+  fill: url(#tree-growth__linear-gradient);
 }
 
 .tree-growth__tree-base--three {
@@ -153,50 +153,49 @@ body::-webkit-scrollbar {
   fill: colors.$forest-greenV5;
 }
 
-@keyframes leafMoveLeft {
-    0% {
-        transform: rotate(0);
-    }
-    
-    100% {
-        transform: translate(0) rotate(-5deg);
-    }
-    }
-
-    @keyframes leafMoveLeft2 {
-        0% {
-            transform: rotate(0);
-        }
-        
-        100% {
-            transform: translate(0) rotate(-2deg);
-        }
-        }
-
-        
-@keyframes leafMoveRight {
-0% {
+@keyframes leafMoveOne {
+  0% {
     transform: rotate(0);
+  }
+
+  100% {
+    transform: translate(0) rotate(-5deg);
+  }
 }
 
-100% {
+@keyframes leafMoveTwo {
+  0% {
+    transform: rotate(0);
+  }
+
+  100% {
+    transform: translate(0) rotate(-2deg);
+  }
+}
+
+@keyframes leafMoveThree {
+  0% {
+    transform: rotate(0);
+  }
+
+  100% {
     transform: translate(0) rotate(5deg);
-}
+  }
 }
 
-@keyframes leafMoveRight2 {
-    0% {
-        transform: skew(-0.15deg);
-    }
-    
-    50% {
-        transform: skew(0deg);
-    }
+@keyframes leafMoveBase {
+  0% {
+    transform: skew(-0.15deg);
+  }
 
-    100% {
-        transform: skew(0.03deg);
-    }
-    }
+  50% {
+    transform: skew(0deg);
+  }
+
+  100% {
+    transform: skew(0.1deg);
+  }
+}
 
 .forest-seed__mountains {
   fill: colors.$sky-blueV1;
@@ -210,35 +209,69 @@ body::-webkit-scrollbar {
   }
 
   &-dark {
+    fill: colors.$earth-brownV4;
+  }
+
+  &-shadow {
     fill: colors.$earth-brownV3;
   }
 }
 
+.forest-seed__arm {
+  fill: colors.$pale-skinV3;
+
+  &-light {
+    fill: colors.$pale-skinV1;
+  }
+
+  &-highlight {
+    fill: colors.$pale-skinV2;
+  }
+
+  &-shadow {
+    fill: colors.$pale-skinV4;
+  }
+}
+
 .forest-seed__leaves svg {
-    fill: colors.$forest-greenV3;
-    transform-origin: center;
-    width: 10%;
+  fill: colors.$forest-greenV3;
+  transform-origin: center;
+  width: 7%;
 }
 
 svg.forest-seed__leaf-one {
-    bottom: 31vw;
-    right: 38%;
-    animation: leafMoveLeft 1s alternate infinite;
+  bottom: 31.5vw;
+  right: 35.5%;
+  animation: leafMoveOne 1s alternate infinite;
 }
 
 svg.forest-seed__leaf-two {
-    bottom: 36.5vw;
-    right: 26%;
-    animation: leafMoveLeft2 1s alternate infinite;
+  bottom: 36.5vw;
+  right: 27%;
+  animation: leafMoveTwo 1s alternate infinite;
 }
 
 svg.forest-seed__leaf-three {
-    bottom: 30vw;
-    right: 22%;
-    animation: leafMoveRight 1s alternate infinite;
+  bottom: 31.2vw;
+  right: 23%;
+  animation: leafMoveThree 1s alternate infinite;
 }
 
-.forest-seed__tree-base {
-    width: 20%;
-    animation: leafMoveRight2 1s alternate ease-in-out infinite;
+.forest-seed__base-top {
+  width: 20%;
+  fill: colors.$forest-greenV4;
+  animation: leafMoveBase 1s alternate infinite;
+}
+
+.forest-seed__base-bottom {
+fill: url(#forest-seed__linear-gradient);
+}
+
+.forest-seed__text {
+ position: absolute;
+ left: 15%;
+ bottom: 35%;
+ font-size: 3em;
+ color: colors.$city-blueV1;
+ width: 25ch;
 }
