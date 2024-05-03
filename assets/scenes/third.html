@@ -19,12 +19,34 @@
 <body>
     <div class="scene__container">
         <div class="scene scene__three--one">
+          <button class="forest-outro__button">Plant a seed (<span class="forest-outro__button-count">3</span> left)</button>
+
+          <svg class="forest-outro__seed forest-outro__seed--1"  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30.6 45.5">
+            <path d="M11.5 33.02c-.15 4.97-.22 7.45 1.22 9.27 1.46 1.84 3.46 2.58 4.66 2.9 1.01-.42 1.12-1.53 1.46-2.47.77-2.27.29-4.35-1.4-6.19-1.49-1.62-2.93-3.6-4.71-4.86-.2-.1-.48-.21-.73-.1-.45.2-.5 1.02-.51 1.46Z"/>
+          </svg>
+          
             <svg class="forest-outro" xmlns="http://www.w3.org/2000/svg" data-name="forest-outro" viewBox="0 0 1920 626.4">
                 <path class="forest-outro__patch-four" d="M0 626h1920V204l-66-39-231-18-164 110-188 8-437-114-371-20-203-98-82-4C150 28 85-11 60 3L0 44v582"/>
                 <path class="forest-outro__patch-three" d="M0 626V180S311 48 501 48l226 24 343 101 150 30 136 33 215-142c282-51 349-10 349-10v542H0"/>
-                <path class="forest-outro__patch-two" d="M0 626V317l147 36 519-47 173 44 311-31 568-74s139 3 202 33v348H0Z"/>
                 <path class="forest-outro__patch-one" d="M1920 626V499s-123-6-274-87c-156-84-454-58-454-58S904 460 813 482c-10 2-208 71-208 71L0 607v19h1920Z"/>
             </svg>
+
+                      
+            <svg class="forest-outro forest-outro__patch-two" xmlns="http://www.w3.org/2000/svg" data-name="forest-outro__patch-two" viewBox="0 0 1920 626.4">
+              <path d="M0 626V317l147 36 519-47 173 44 311-31 568-74s139 3 202 33v348H0Z"/>
+          </svg>
+
+          <svg class="forest-outro__seed forest-outro__seed--2"  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30.6 45.5">
+            <path d="M11.5 33.02c-.15 4.97-.22 7.45 1.22 9.27 1.46 1.84 3.46 2.58 4.66 2.9 1.01-.42 1.12-1.53 1.46-2.47.77-2.27.29-4.35-1.4-6.19-1.49-1.62-2.93-3.6-4.71-4.86-.2-.1-.48-.21-.73-.1-.45.2-.5 1.02-.51 1.46Z"/>
+          </svg>
+
+          <svg class="forest-outro forest-outro__patch-one" xmlns="http://www.w3.org/2000/svg" data-name="forest-outro__patch-one" viewBox="0 0 1920 626.4">
+            <path d="M1920 626V499s-123-6-274-87c-156-84-454-58-454-58S904 460 813 482c-10 2-208 71-208 71L0 607v19h1920Z"/>
+         </svg>
+
+            <div class="forest-outro__text">
+              <p>Deforestation can be permanent, but it's not always the case. In North America, forests in many areas are returning due to conservation efforts which includes planting trees.</p>
+            </div>
         </div>
         <div class="scene scene__three--two">
               <svg xmlns="http://www.w3.org/2000/svg" id="forest-seed" viewBox="0 0 1920 1004.8">
@@ -143,4 +165,21 @@
             </svg>
         </div>
     </div>
+
+
+    <script>
+      const plantButton = document.querySelector(".forest-outro__button");
+
+      plantButton.addEventListener("click", () => {
+
+      const seed = document.querySelector(".forest-outro__seed--1")
+      const seedPath = seed.querySelector("path");
+
+      seed.classList.add("forest-outro__seed--active");
+      seedPath.classList.add("forest-outro__seed-grow");
+
+      console.log(`hi is this working`);
+
+      });
+      </script>
 </body>
