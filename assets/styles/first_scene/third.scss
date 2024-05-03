@@ -26,11 +26,11 @@ body::-webkit-scrollbar {
   overflow: hidden;
 
   &__three--one,
-  &__three--three {
+  &__three--two {
     background-color: colors.$forest-bg;
   }
 
-  &__three--two {
+  &__three--three, &__three--four {
     background-color: #dfefec;
   }
 }
@@ -66,8 +66,9 @@ body::-webkit-scrollbar {
 
 .forest-outro__button {
   position: absolute;
+  z-index: 2;
   left: 50%;
-  bottom: 38vw;
+  bottom: 60%;
   transform: translate(-50%, -50%);
   padding: 1% 2%;
   font-size: 1.5em;
@@ -78,12 +79,12 @@ svg.forest-outro__seed {
   fill: #574940;
   // display: none;
 
-  &--1 {
+  &--one {
     right: 10%;
     bottom: 40vw;
   }
 
-  &--2 {
+  &--two {
     left: 20%;
     bottom: 20vw;
   }
@@ -325,11 +326,11 @@ svg.forest-outro__seed {
   }
 
   &-dark {
-    fill: colors.$earth-brownV4;
+    fill: colors.$earth-brownV5;
   }
 
   &-shadow {
-    fill: colors.$earth-brownV3;
+    fill: colors.$earth-brownV4;
   }
 }
 
@@ -383,11 +384,217 @@ svg.forest-seed__leaf-three {
   fill: url(#forest-seed__linear-gradient);
 }
 
-.forest-seed__text {
+.screen__three-text {
   position: absolute;
-  left: 15%;
-  bottom: 35%;
   font-size: 3em;
   color: colors.$city-blueV1;
+}
+
+.forest-seed__text {
+  left: 15%;
+  bottom: 40%;
   width: 25ch;
+}
+
+svg.bird {
+  z-index: 3;
+  width: 8%;
+  animation: flyAndBobAndLeft 2s linear forwards, birdUpDown 2s linear infinite;
+  bottom: 37.5vw;
+  left: 30%;
+  fill: #c24444; 
+}
+
+svg.nature-screen__tree {
+  z-index: 2;
+  width: 72%;
+  fill: colors.$earth-brownV3;
+}
+
+.nature-screen__tree-highlight {
+  fill: colors.$earth-brownV1;
+  }
+
+.nature-screen__tree-mid {
+  fill: colors.$earth-brownV4;
+  }
+
+.nature-screen__tree-shadow {
+  fill: colors.$earth-brownV5;
+  }
+
+.nature-screen__leaves-light {
+  fill: colors.$forest-greenV3;
+}
+
+@keyframes flyAndBobAndLeft {
+  0% {
+    transform: translate(0, 0);
+  }
+  15% {
+    transform: translate(-40%, 10%);
+  }
+  30% {
+    transform: translate(-80%, 5%);
+  }
+
+  45% {
+    transform: translate(-120%, -10%);
+  }
+
+  58% {
+    transform: translate(-160%, -5%);
+  }
+
+  59%, 60%, 100% {
+    transform: translate(-165%, 0%);
+  }
+}
+
+@keyframes birdUpDown {
+  60%, 70% {
+    transform: translate(-165%, 10%);
+  }
+
+  70%, 80% {
+    transform: translate(-165%, 0%);
+  }
+
+  80%, 90% {
+    transform: translate(-165%, 10%);
+  }
+
+  90%, 100% {
+    transform: translate(-165%, 0%);
+  }
+}
+
+.bird__wing {
+  transform-origin: center;
+  animation: flapWings 2s ease-in-out alternate;
+  fill: #943737;
+}
+
+@keyframes flapWings {
+  0% {
+    transform: rotate(0);
+  }
+
+  25% {
+    transform: rotate(10deg);
+  }
+
+  50% {
+    transform: rotate(5deg);
+  }
+
+  75% {
+    transform: rotate(-10deg);
+  }
+
+  100% {
+    transform: rotate(-5deg);
+  }
+}
+
+.bird__blush {
+  fill: #e05b5a;
+}
+
+.bird__stomach {
+  fill: #e5e0c7;
+}
+
+.bird__details {
+  fill: #602526;
+}
+
+.nature-screen__leaves {
+  animation: windBlow 2s ease-in-out infinite;
+  fill: colors.$forest-greenV4
+}
+
+@keyframes windBlow {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(0.5%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.nature-screen__text {
+  text-align: center;
+  transform: translate(-50%, -50%);
+  left: 50%;
+  bottom: 26%;
+  width: 25ch;
+  z-index: 4;
+}
+
+
+.flowers {
+  // animation: windBlow 2s ease-in-out infinite;
+  fill: colors.$forest-greenV3;
+}
+
+@keyframes flowerWaveOne {
+  100% {
+    transform: rotate(0.2deg);
+  }
+}
+
+.flowers--one, .flowers--three {
+  animation: flowerWaveOne 2s ease-in-out alternate infinite;
+}
+
+@keyframes flowerWaveTwo {
+  100% {
+    transform: rotate(-0.2deg);
+  }
+}
+
+.flowers--two {
+  animation: flowerWaveTwo 2s ease-in-out alternate infinite;
+}
+
+@keyframes flowerRotate {
+0% {
+  transform: rotateX(-10deg) translateX(-0.1%);
+}
+
+50% {
+transform: rotate(0);
+}
+
+100% {
+  transform: rotateX(10deg) translateX(0.1%);
+  }
+}
+
+.flowers__bell {
+fill: #4c6aa0;
+transform-origin: center;
+animation: flowerRotate 2s ease-in-out alternate infinite;
+}
+
+.flowers__bell-shadow {
+  fill: #375786;
+}
+
+
+.nature-screen__patch-two {
+  fill: colors.$forest-greenV2;
+}
+
+.nature-screen__patch-one {
+  fill: colors.$forest-greenV3;
+}
+
+
+.nature-screen__mountains {
+  fill: colors.$sky-blueV1;
 }
