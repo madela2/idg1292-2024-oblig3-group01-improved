@@ -73,7 +73,7 @@ document.addEventListener('wheel', (event) => {
 
 
 //initiates second scene when text from previous scene is scrolled out of window on (top only)
-const observer = new IntersectionObserver((entry) => {
+const secondObserver = new IntersectionObserver((entry) => {
     //managing bolean so that "removechild" initiated further up does not happen before element has been appended
     textBox.getBoundingClientRect().top < 0 ? initiated = true : null;
 
@@ -86,4 +86,4 @@ const observer = new IntersectionObserver((entry) => {
         rootMargin: '0px',
         threshold: 1.0
     });
-observer.observe(textBox);
+secondObserver.observe(textBox);
