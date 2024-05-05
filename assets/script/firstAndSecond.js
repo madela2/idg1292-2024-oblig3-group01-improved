@@ -89,6 +89,7 @@ const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
         const parOneEntry = entry.target === parOne && !entry.isIntersecting && entry.target.getBoundingClientRect().top < 0;
         parOneEntry ? bulldozer.classList.add('bulldozer__svg--active') + trees.forEach(el => el.classList.add(el.getAttribute('data-tree'))) : null;
+        entry.target === parOne && !parOne.isIntersecting && parOne.getBoundingClientRect().top + parOne.getBoundingClientRect().height > 0 ? trees.forEach(tree => tree.hasAttribute('data-tree') && tree.classList.contains(tree.getAttribute('data-tree')) ? tree.classList.remove(tree.getAttribute('data-tree')) : null) : null;
         const parTwoEntry = entry.target === parTwo && parTwo.getBoundingClientRect().top < 0;
         parTwoEntry ? (!entry.isIntersecting ? secondSceneInitiation = true : secondSceneInitiation = false) + InitiatesecondSceneCss() : null;
         (bulldozer.getBoundingClientRect().left / window.innerWidth) * 100 > 100 ? bulldozer.classList.remove('bulldozer__svg--active') + (firstPhaseThree = true) : null;
