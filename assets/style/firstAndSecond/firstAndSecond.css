@@ -396,26 +396,6 @@ html {
   }
 }
 @keyframes bulldozerDrive {
-  /* 0% {
-      transform: translate(0%, 0%), rotateZ(0deg);
-      scale: 1;
-
-  }
-
-  25% {
-      scale: 3;
-      transform: translate(-10%, 50%), rotateZ(-40deg);
-  }
-
-  50% {
-      scale: 0.5;
-      transform: translate(50%, -30%), rotateZ(20deg);
-  }
-
-  75% {
-      scale: 4;
-      transform: translate(-10%, -50%), rotateZ(-50deg);
-  }*/
   100% {
     left: 101%;
   }
