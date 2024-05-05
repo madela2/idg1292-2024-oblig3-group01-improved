@@ -20,44 +20,6 @@ html {
   overflow: hidden;
   position: relative;
   height: 100%;
-  /*&__pollution {
-          background-color: grey;
-          position: absolute;
-          box-shadow: 0px 0px 1vw 1vw grey;
-          opacity: 0;
-          border-radius: 50% /50%;
-          aspect-ratio: 1 / 2;
-          animation-delay: 0s;
-
-          &--one {
-              width: 2.5%;
-              left: 8%;
-              animation: one-pollutionAnimation 4s infinite;
-          }
-
-      &--two {
-          width: 1.5%;
-          left: 25%;
-          animation: two-pollutionAnimation 3s infinite;
-      }
-
-      &--three {
-          left: 45%;
-          animation: three-pollutionAnimation 4s infinite;
-      }
-
-      &--four {
-          width: 1%;
-          left: 70%;
-          animation: four-pollutionAnimation 2s infinite;
-      }
-
-      &--five {
-          width: 3.5%;
-          left: 80%;
-          animation: five-pollutionAnimation 4s infinite;
-      }
-  }*/
 }
 .scene__paragraph {
   background-color: white;
@@ -424,7 +386,7 @@ html {
   left: -60vw;
 }
 .bulldozer__svg--active {
-  animation: bulldozerDrive 1.3s linear forwards;
+  animation: bulldozerDrive 4s linear forwards;
 }
 
 @keyframes windowsOnAnimation {
@@ -434,6 +396,26 @@ html {
   }
 }
 @keyframes bulldozerDrive {
+  /* 0% {
+      transform: translate(0%, 0%), rotateZ(0deg);
+      scale: 1;
+
+  }
+
+  25% {
+      scale: 3;
+      transform: translate(-10%, 50%), rotateZ(-40deg);
+  }
+
+  50% {
+      scale: 0.5;
+      transform: translate(50%, -30%), rotateZ(20deg);
+  }
+
+  75% {
+      scale: 4;
+      transform: translate(-10%, -50%), rotateZ(-50deg);
+  }*/
   100% {
     left: 101%;
   }
@@ -619,20 +601,6 @@ html {
     height: 100%;
   }
 }
-/*@keyframes waterwaving {
-
-    0% {
-        height: 100%;
-    }
-
-    50% {
-        height: 97%;
-    }
-
-    100% {
-        height: 100%;
-    }
-}*/
 @keyframes cloudsTurnGreen {
   100% {
     opacity: 1;
@@ -657,15 +625,6 @@ html {
     height: calc(20vh + 3vw);
   }
 }
-/*@keyframes cloudsGrow {
-    from {
-        height: calc(20vh + 3vw);
-    }
-
-    to {
-        height: calc(50vh + 3vw);
-    }
-}*/
 @keyframes roadAnimation {
   0% {
     opacity: 1;
