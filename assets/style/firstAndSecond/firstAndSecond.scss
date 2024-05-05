@@ -87,20 +87,23 @@ html {
         height: 8vw;
         z-index: 1;
         opacity: calc(1 - var(--paragraph-opacity, 0));
+        height: 11vw;
 
         &--one {
             position: absolute;
             display: block;
-            left: -20vw;
-            width: 20vw;
+            left: -100%;
+            width: auto;
+            transform: translateX(-100%);
             animation: headLinePartOneAnimation 0.3s forwards;
         }
 
         &--two {
             display: block;
             left: 100%;
-            width: 20vw;
+            width: auto;
             position: absolute;
+            transform: translateX(0%);
             animation: headLinePartTwoAnimation 0.3s forwards;
         }
     }
@@ -475,30 +478,7 @@ html {
 }
 
 @keyframes bulldozerDrive {
-    /* 0% {
-        transform: translate(0%, 0%), rotateZ(0deg);
-        scale: 1;
-
-    }
-
-    25% {
-        scale: 3;
-        transform: translate(-10%, 50%), rotateZ(-40deg);
-    }
-
-    50% {
-        scale: 0.5;
-        transform: translate(50%, -30%), rotateZ(20deg);
-    }
-
-    75% {
-        scale: 4;
-        transform: translate(-10%, -50%), rotateZ(-50deg);
-    }*/
-
     100% {
-        //transform: translate(0%, 0%), rotateZ(0deg);
-        //scale: 1;
         left: 101%;
     }
 }
@@ -515,13 +495,13 @@ html {
 
 @keyframes headLinePartTwoAnimation {
     100% {
-        left: 50%;
+        left: 50.5%;
     }
 }
 
 @keyframes headLinePartOneAnimation {
     100% {
-        left: calc(50% - 20vw);
+        left: 49.8%;
     }
 }
 
