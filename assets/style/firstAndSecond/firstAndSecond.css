@@ -71,19 +71,22 @@ html {
   height: 8vw;
   z-index: 1;
   opacity: calc(1 - var(--paragraph-opacity, 0));
+  height: 11vw;
 }
 .scene__headline--one {
   position: absolute;
   display: block;
-  left: -20vw;
-  width: 20vw;
+  left: -100%;
+  width: auto;
+  transform: translateX(-100%);
   animation: headLinePartOneAnimation 0.3s forwards;
 }
 .scene__headline--two {
   display: block;
   left: 100%;
-  width: 20vw;
+  width: auto;
   position: absolute;
+  transform: translateX(0%);
   animation: headLinePartTwoAnimation 0.3s forwards;
 }
 .scene__second {
@@ -410,12 +413,12 @@ html {
 }
 @keyframes headLinePartTwoAnimation {
   100% {
-    left: 50%;
+    left: 50.5%;
   }
 }
 @keyframes headLinePartOneAnimation {
   100% {
-    left: calc(50% - 20vw);
+    left: 49.8%;
   }
 }
 @keyframes deerOpacity {
