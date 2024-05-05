@@ -377,7 +377,7 @@ html {
     &__svg {
         bottom: 0;
         position: absolute;
-        width: 100%;
+        width: 100vw;
     }
 
     &__deer {
@@ -408,16 +408,13 @@ html {
         animation: introTreesGrow 0.5s ease-in forwards;
     }
 
+    //placed for animation
     &__tree {
         &--one {}
 
         &--two {}
 
         &--three {}
-
-        &--four {}
-
-        &--five {}
     }
 
     &__patch {
@@ -489,19 +486,19 @@ html {
     }
 
     100% {
-        bottom: 2%;
+        bottom: 0%;
     }
 }
 
 @keyframes headLinePartTwoAnimation {
     100% {
-        left: 50.5%;
+        left: 50%;
     }
 }
 
 @keyframes headLinePartOneAnimation {
     100% {
-        left: 49.8%;
+        left: 49%;
     }
 }
 

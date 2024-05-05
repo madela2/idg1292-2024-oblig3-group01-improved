@@ -331,7 +331,7 @@ html {
 .forest__svg {
   bottom: 0;
   position: absolute;
-  width: 100%;
+  width: 100vw;
 }
 .forest__deer {
   bottom: 14vw;
@@ -408,17 +408,17 @@ html {
     bottom: -50%;
   }
   100% {
-    bottom: 2%;
+    bottom: 0%;
   }
 }
 @keyframes headLinePartTwoAnimation {
   100% {
-    left: 50.5%;
+    left: 50%;
   }
 }
 @keyframes headLinePartOneAnimation {
   100% {
-    left: 49.8%;
+    left: 49%;
   }
 }
 @keyframes deerOpacity {
