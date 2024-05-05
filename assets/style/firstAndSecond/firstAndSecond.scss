@@ -141,9 +141,42 @@ html {
       width: 6%;
     }
 
+<<<<<<< HEAD
     &--two {
       @include buildingCallAnimations(two-buildingAnimation 0.7s forwards 0.3s);
       width: 13%;
+=======
+    &__headline {
+        width: 100%;
+        overflow: hidden;
+        transform: translate(-50%, -50%);
+        top: 40%;
+        left: 50%;
+        position: absolute;
+        font-size: 8vw;
+        height: 8vw;
+        z-index: 1;
+        opacity: calc(1 - var(--paragraph-opacity, 0));
+        height: 11vw;
+
+        &--one {
+            position: absolute;
+            display: block;
+            left: -100%;
+            width: auto;
+            transform: translateX(-100%);
+            animation: headLinePartOneAnimation 0.3s forwards;
+        }
+
+        &--two {
+            display: block;
+            left: 100%;
+            width: auto;
+            position: absolute;
+            transform: translateX(0%);
+            animation: headLinePartTwoAnimation 0.3s forwards;
+        }
+>>>>>>> bfa072a3b0e7d6df6f59276def9f190688cadf7c
     }
 
     &--three {
@@ -513,9 +546,15 @@ html {
 }
 
 @keyframes bulldozerDrive {
+<<<<<<< HEAD
   100% {
     left: 200%;
   }
+=======
+    100% {
+        left: 101%;
+    }
+>>>>>>> bfa072a3b0e7d6df6f59276def9f190688cadf7c
 }
 
 @keyframes introTreesGrow {
@@ -631,6 +670,7 @@ html {
 }
 
 @keyframes headLinePartTwoAnimation {
+<<<<<<< HEAD
   100% {
     left: 50%;
   }
@@ -640,6 +680,17 @@ html {
   100% {
     left: calc(50% - 20vw);
   }
+=======
+    100% {
+        left: 50.5%;
+    }
+}
+
+@keyframes headLinePartOneAnimation {
+    100% {
+        left: 49.8%;
+    }
+>>>>>>> bfa072a3b0e7d6df6f59276def9f190688cadf7c
 }
 
 @keyframes deerOpacity {
