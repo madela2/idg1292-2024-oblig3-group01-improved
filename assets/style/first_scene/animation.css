@@ -84,4 +84,18 @@
   75% {
     transform: translateX(-2px);
   }
+}
+@keyframes shake {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  25%, 75% {
+    transform: translateX(-2%);
+  }
+  50% {
+    transform: translateX(2%);
+  }
+}
+.shake-element {
+  animation: shake 0.5s infinite;
 }/*# sourceMappingURL=animation.css.map */
