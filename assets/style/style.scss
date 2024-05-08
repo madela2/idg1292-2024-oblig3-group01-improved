@@ -859,18 +859,16 @@ html {
     }
 
     80%,
-    99%,
-    100% {
+    99% {
+        visibility: visible;
         bottom: 13vw;
         left: 90%;
     }
 
-    99% {
-        opacity: 1;
-    }
-
     100% {
-        opacity: 0;
+        visibility: hidden;
+        bottom: 13vw;
+        left: 90%;
     }
 
 }
