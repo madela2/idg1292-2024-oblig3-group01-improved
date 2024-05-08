@@ -567,6 +567,14 @@ html {
 .bulldozer__group--body {
   animation: upDown 0.5s alternate infinite;
 }
+.bulldozer__group--wheel {
+  transform-origin: center;
+  animation: rotateWheel 0.8s infinite;
+  transform-box: fill-box;
+  fill: #B1B7C9;
+  stroke-width: 4;
+  stroke: #8B8F99;
+}
 .bulldozer__yellow-light {
   fill: #EBCA71;
 }
@@ -743,19 +751,19 @@ html {
     left: 0%;
   }
   20% {
-    bottom: 13vw;
+    bottom: 12vw;
   }
   30% {
-    bottom: 10vw;
+    bottom: 9vw;
   }
   50%, 53% {
-    bottom: 5vw;
+    bottom: 4.5vw;
   }
   65% {
-    bottom: 10vw;
+    bottom: 9vw;
   }
   80%, 100% {
-    bottom: 14vw;
+    bottom: 13vw;
     left: 90%;
   }
 }
@@ -1411,15 +1419,13 @@ html {
 .bird {
   width: 8%;
   bottom: 37.5vw;
-  left: 30%;
+  left: 15%;
   fill: #c24444;
-}
-.bird--active {
-  animation: flyAndBobAndLeft 2s linear forwards, birdUpDown 2s linear infinite;
+  animation: birdUpDown 2s alternate infinite;
 }
 .bird__wing {
   transform-origin: center;
-  animation: flapWings 2s ease-in-out alternate;
+  animation: flapWings 2s ease-in-out alternate infinite;
   fill: #943737;
 }
 .bird__blush {
@@ -1446,38 +1452,12 @@ html {
   fill: #574940;
 }
 
-@keyframes flyAndBobAndLeft {
-  0% {
-    transform: translate(0, 0);
-  }
-  15% {
-    transform: translate(-40%, 10%);
-  }
-  30% {
-    transform: translate(-80%, 5%);
-  }
-  45% {
-    transform: translate(-120%, -10%);
-  }
-  58% {
-    transform: translate(-160%, -5%);
-  }
-  59%, 60%, 100% {
-    transform: translate(-165%, 0%);
-  }
-}
 @keyframes birdUpDown {
-  60%, 70% {
-    transform: translate(-165%, 10%);
+  from {
+    transform: translateY(0%);
   }
-  70%, 80% {
-    transform: translate(-165%, 0%);
-  }
-  80%, 90% {
-    transform: translate(-165%, 10%);
-  }
-  90%, 100% {
-    transform: translate(-165%, 0%);
+  to {
+    transform: translateY(20%);
   }
 }
 @keyframes flapWings {
@@ -1547,6 +1527,35 @@ html {
     transform: rotateX(10deg) translateX(0.1%);
   }
 }
+
+
+@media (prefers-reduced-motion: reduce) {
+  .deer {
+    animation: deerBodyMove 8s ease-in forwards 0.3s, deerOpacity 0.5s forwards 0.3s;
+  }
+  .bulldozer--active {
+    animation: bulldozerDrive 7s linear forwards;
+  }
+  .bulldozer__group--pipe {
+    animation: none;
+  }
+  .bulldozer__group--lift {
+    animation: none;
+  }
+  .bulldozer__group--body {
+    animation: none;
+  }
+  .bulldozer__group--wheel {
+    animation: none;
+  }
+  @keyframes waterAnimation {
+    from {
+      height: 0%;
+    }
+    to {
+      height: 100%;
+    }
+
 @media screen and (max-width: 500px) {
   .scene__paragraph--five {
     width: 60%;
