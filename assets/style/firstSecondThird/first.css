@@ -112,9 +112,7 @@ html {
 }
 
 body {
-  -webkit-user-select: none;
-     -moz-user-select: none;
-          user-select: none;
+  user-select: none;
 }
 
 body::-webkit-scrollbar {
@@ -149,7 +147,7 @@ body::-webkit-scrollbar {
   background-color: #e8ecea;
 }
 
-.scene__container svg {
+.scene__container {
   position: absolute;
   bottom: 0;
 }

@@ -1,0 +1,923 @@
+@use "animation.scss";
+@use "colors.scss";
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+}
+
+html {
+    font-size: 1vw;
+    font-family: "Acme";
+    cursor: url(../../svgs/circle.svg) 15 15, move;
+}
+
+body {
+    user-select: none; // make text non-selectable
+}
+
+body::-webkit-scrollbar {
+    display: none;
+}
+
+.scene {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+
+    &__third--one,
+    &__third--two {
+        background-color: colors.$forest-bg;
+    }
+
+    &__third--three,
+    &__third--four {
+        background-color: #dfefec;
+    }
+}
+
+@keyframes forestOutroStart {
+    0% {
+        transform: translateY(50%);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+.forest-outro {
+    animation: forestOutroStart 1s linear;
+
+    &__patch-four {
+        fill: colors.$forest-greenV1;
+    }
+
+    &__patch-three {
+        fill: colors.$forest-greenV2;
+    }
+
+    &__patch-two {
+        fill: colors.$forest-greenV3;
+    }
+
+    &__patch-one {
+        fill: colors.$forest-greenV4;
+    }
+}
+
+.forest__button {
+    position: absolute;
+    z-index: 2;
+    left: 50%;
+    bottom: 60%;
+    transform: translate(-50%, -50%);
+    padding: 1% 2%;
+    font-size: 1.5em;
+}
+
+.forest-outro__seed {
+    width: 5%;
+    fill: #574940;
+    right: 10%;
+    bottom: 40vw;
+
+    &--one {
+        right: 10%;
+        bottom: 40vw;
+    }
+
+    &--two {
+        left: 20%;
+        bottom: 20vw;
+    }
+}
+
+.forest-outro__seed--active {
+    // display: block;
+    animation: plantSeed 2s forwards;
+}
+
+@keyframes plantSeed {
+    0% {
+        transform: translateY(0);
+    }
+
+    20%,
+    40% {
+        transform: translateY(220%);
+    }
+
+    60%,
+    70% {
+        transform: translateY(216%);
+    }
+
+    70%,
+    80% {
+        transform: translateY(210%);
+    }
+
+    80%,
+    90% {
+        transform: translateY(202%);
+    }
+
+    90%,
+    100% {
+        transform: translateY(192%);
+    }
+
+    50%,
+    100% {
+        fill: colors.$forest-greenV2;
+    }
+}
+
+.forest-outro__seed-grow {
+    animation: seedGrow 2s forwards;
+}
+
+@keyframes seedGrow {
+
+    0%,
+    49% {
+        d: path("M11.5 33.02c-.15 4.97-.22 7.45 1.22 9.27 1.46 1.84 3.46 2.58 4.66 2.9 1.01-.42 1.12-1.53 1.46-2.47.77-2.27.29-4.35-1.4-6.19-1.49-1.62-2.93-3.6-4.71-4.86-.2-.1-.48-.21-.73-.1-.45.2-.5 1.02-.51 1.46Z"
+            );
+    }
+
+    50%,
+    60% {
+        d: path("m19.5 43.3-5.1 2-1.8-4 1.8-17.7.1-6.9c-1.2-1.8-2-3.8-2-6l-.1-.7-.1-1.5V7.3l1 2 .6 1.5.7 3.7v-.7l.5-.6.2-1.1 1.2-3.6.6 1.4.2 1.3-.5 4.7-1 2.8 3.7 24.6Z"
+            );
+    }
+
+    60%,
+    70% {
+        d: path("m19.6 43.3-5.2 2-1.8-4 1.8-17.7.2-7.7c-1.2-1.8-2-4-2.3-6.2l-.1-.8-.2-1.7V5.8L13.1 8l.6 1.7 1 4 .3-.4c0-.8.2-1.5.4-2.2L17 7l.6 1.6v1.5l-.7 5.3-1 2.5 3.8 25.3Z"
+            );
+    }
+
+    70%,
+    80% {
+        d: path("M21.4 4.3v1.9l-.5 1.4-2.9 4.8-2.7 2.7 4.3 28.2-5.2 2-1.8-4 1.8-17.7.2-9.1c-2.5-1.1-4.6-2.9-6.2-5.2L8 8.6 7 7.1l-.8-1.3 2.3 1.5 1.4 1.2 4.6 5.6-.4-1.7.6-.9.6 1.1v2.1l1.6-4.5c.3-1 .9-1.9 1.6-2.6l3-3.3Z"
+            );
+    }
+
+    80%,
+    90% {
+        d: path("M23.4 5 23 6.8c-.2.4-.4 1-.7 1.3l-3.7 4.2-3.3 2.3.4 2.8 1.2-.3-.1 1.1c0 .2-.2.4-.4.4l-.5.1 3.7 24.6-5.2 2-1.8-4 1.8-17.7.2-5.3v-3.8l-.9-1c-2.3-.6-4.6-2-6.4-3.8l-.5-.6-1.3-1.4-1-1 2.5 1 1.6 1 6 5 .1-1.2-.5-3.2c-.1-.7 0-1.4.3-2.1l.8-1.8.4 3.5v2.4l-.6.8.2 1v.9h.2l2.4-4c.5-1 1.2-1.7 2-2.4L23.4 5Z"
+            );
+    }
+
+    90%,
+    100% {
+        d: path("m24.7 7-1 1.5-.5 1c-.4 1-1 1.9-2 2.5l-.6.4c-.6.5-1.4.8-2.1 1l-3.2 1 .4 3 .6-1h.8c.2 0 .6-.1.7.1 0 .3-.9 1.7-1 2-.3.3-.6.2-1 0l3.8 24.8-5.2 2-1.8-4 1.8-17.7.2-9-.7-.8c-2.3-.2-4.6-.5-6.6-2l-1-.6c-.5-.3-1-1-1.5-1.4l-1.1-.7 3 .1 1.6.7 6.3 3.6.1-1.5V12l-.4-2.5c-.2-1.3-1.3-3.8-.5-4.8L16.7.5l-.7 8-.4 2.4-.6 1 .2 1.2v.8l1.7-2.7c.6-.8 2.7-2.2 3.6-2.6L24.7 7Z"
+            );
+    }
+}
+
+.forest-outro__text {
+    padding: 1%;
+}
+
+@keyframes treeGrowthOne {
+
+    0%,
+    9% {
+        opacity: 0;
+    }
+
+    10%,
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes treeGrowthTwo {
+
+    0%,
+    29% {
+        opacity: 0;
+    }
+
+    30%,
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes treeGrowthThree {
+
+    0%,
+    49% {
+        opacity: 0;
+    }
+
+    50%,
+    100% {
+        opacity: 1;
+    }
+}
+
+.tree-growth {
+    &__stage--one {
+        animation: treeGrowthOne 7s linear;
+    }
+
+    &__stage--two {
+        animation: treeGrowthTwo 7s linear;
+    }
+
+    &__stage--three {
+        animation: treeGrowthThree 7s linear;
+    }
+}
+
+.tree-growth__dividers {
+    fill: colors.$forest-bg;
+}
+
+.tree-growth__mountain {
+    fill: colors.$forest-greenV1;
+
+    &-shadow {
+        fill: colors.$forest-greenV1_shade;
+    }
+}
+
+.tree-growth__grass-base,
+.tree-growth__leaves,
+.tree-growth__grass-front {
+    fill: colors.$forest-greenV3;
+}
+
+.tree-growth__grass-back {
+    fill: colors.$forest-greenV2;
+}
+
+.tree-growth__tree-base,
+.tree-growth__leaves-mid {
+    fill: colors.$forest-greenV4;
+}
+
+.tree-growth__tree-base--two {
+    fill: url(#tree-growth__linear-gradient);
+}
+
+.tree-growth__tree-base--three {
+    fill: colors.$dark-woodV1;
+}
+
+.tree-growth__leaves-dark {
+    fill: colors.$forest-greenV5;
+}
+
+@keyframes leafMoveOne {
+    0% {
+        transform: rotate(0);
+    }
+
+    100% {
+        transform: translate(0) rotate(-5deg);
+    }
+}
+
+@keyframes leafMoveTwo {
+    0% {
+        transform: rotate(0);
+    }
+
+    100% {
+        transform: translate(0) rotate(-2deg);
+    }
+}
+
+@keyframes leafMoveThree {
+    0% {
+        transform: rotate(0);
+    }
+
+    100% {
+        transform: translate(0) rotate(5deg);
+    }
+}
+
+@keyframes leafMoveBase {
+    0% {
+        transform: skew(-0.15deg);
+    }
+
+    50% {
+        transform: skew(0deg);
+    }
+
+    100% {
+        transform: skew(0.1deg);
+    }
+}
+
+.forest-seed__mountains {
+    fill: colors.$sky-blueV1;
+}
+
+.forest-seed__soil {
+    fill: colors.$earth-brownV1;
+
+    &-mid {
+        fill: colors.$earth-brownV2;
+    }
+
+    &-dark {
+        fill: colors.$earth-brownV5;
+    }
+
+    &-shadow {
+        fill: colors.$earth-brownV4;
+    }
+}
+
+.forest-seed__arm {
+    fill: colors.$pale-skinV3;
+
+    &-light {
+        fill: colors.$pale-skinV1;
+    }
+
+    &-highlight {
+        fill: colors.$pale-skinV2;
+    }
+
+    &-shadow {
+        fill: colors.$pale-skinV4;
+    }
+}
+
+/*.forest-seed__leaves {
+    fill: colors.$forest-greenV3;
+    transform-origin: center;
+    width: 7%;
+}*/
+
+.forest-seed__leaf-one {
+    bottom: 31.5vw;
+    right: 35.5%;
+    animation: leafMoveOne 1s alternate infinite;
+}
+
+.forest-seed__leaf-two {
+    bottom: 36.5vw;
+    right: 27%;
+    animation: leafMoveTwo 1s alternate infinite;
+}
+
+.forest-seed__leaf-three {
+    bottom: 31.2vw;
+    right: 23%;
+    animation: leafMoveThree 1s alternate infinite;
+}
+
+.forest-seed__base-top {
+    width: 20%;
+    fill: colors.$forest-greenV4;
+    animation: leafMoveBase 1s alternate infinite;
+}
+
+.forest-seed__base-bottom {
+    fill: url(#forest-seed__linear-gradient);
+}
+
+.screen__three-text {
+    position: absolute;
+    font-size: 3em;
+    color: colors.$city-blueV1;
+}
+
+.forest-seed__text {
+    left: 15%;
+    bottom: 40%;
+    width: 25ch;
+}
+
+.bird {
+    z-index: 3;
+    width: 8%;
+    animation: flyAndBobAndLeft 2s linear forwards, birdUpDown 2s linear infinite;
+    bottom: 37.5vw;
+    left: 30%;
+    fill: #c24444;
+}
+
+.nature-screen__tree {
+    z-index: 2;
+    width: 72%;
+    fill: colors.$earth-brownV3;
+}
+
+.nature-screen__tree-highlight {
+    fill: colors.$earth-brownV1;
+}
+
+.nature-screen__tree-mid {
+    fill: colors.$earth-brownV4;
+}
+
+.nature-screen__tree-shadow {
+    fill: colors.$earth-brownV5;
+}
+
+.nature-screen__leaves-light {
+    fill: colors.$forest-greenV3;
+}
+
+@keyframes flyAndBobAndLeft {
+    0% {
+        transform: translate(0, 0);
+    }
+
+    15% {
+        transform: translate(-40%, 10%);
+    }
+
+    30% {
+        transform: translate(-80%, 5%);
+    }
+
+    45% {
+        transform: translate(-120%, -10%);
+    }
+
+    58% {
+        transform: translate(-160%, -5%);
+    }
+
+    59%,
+    60%,
+    100% {
+        transform: translate(-165%, 0%);
+    }
+}
+
+@keyframes birdUpDown {
+
+    60%,
+    70% {
+        transform: translate(-165%, 10%);
+    }
+
+    70%,
+    80% {
+        transform: translate(-165%, 0%);
+    }
+
+    80%,
+    90% {
+        transform: translate(-165%, 10%);
+    }
+
+    90%,
+    100% {
+        transform: translate(-165%, 0%);
+    }
+}
+
+.bird__wing {
+    transform-origin: center;
+    animation: flapWings 2s ease-in-out alternate;
+    fill: #943737;
+}
+
+@keyframes flapWings {
+    0% {
+        transform: rotate(0);
+    }
+
+    25% {
+        transform: rotate(10deg);
+    }
+
+    50% {
+        transform: rotate(5deg);
+    }
+
+    75% {
+        transform: rotate(-10deg);
+    }
+
+    100% {
+        transform: rotate(-5deg);
+    }
+}
+
+.bird__blush {
+    fill: #e05b5a;
+}
+
+.bird__stomach {
+    fill: #e5e0c7;
+}
+
+.bird__details {
+    fill: #602526;
+}
+
+.nature-screen__leaves {
+    animation: windBlow 2s ease-in-out infinite;
+    fill: colors.$forest-greenV4
+}
+
+@keyframes windBlow {
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(0.5%);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+.nature-screen__text {
+    text-align: center;
+    transform: translate(-50%, -50%);
+    left: 50%;
+    bottom: 26%;
+    width: 25ch;
+    z-index: 4;
+}
+
+
+.flowers {
+    // animation: windBlow 2s ease-in-out infinite;
+    fill: colors.$forest-greenV3;
+}
+
+@keyframes flowerWaveOne {
+    100% {
+        transform: rotate(0.2deg);
+    }
+}
+
+.flowers--one,
+.flowers--three {
+    animation: flowerWaveOne 2s ease-in-out alternate infinite;
+}
+
+@keyframes flowerWaveTwo {
+    100% {
+        transform: rotate(-0.2deg);
+    }
+}
+
+.flowers--two {
+    animation: flowerWaveTwo 2s ease-in-out alternate infinite;
+}
+
+@keyframes flowerRotate {
+    0% {
+        transform: rotateX(-10deg) translateX(-0.1%);
+    }
+
+    50% {
+        transform: rotate(0);
+    }
+
+    100% {
+        transform: rotateX(10deg) translateX(0.1%);
+    }
+}
+
+.flowers__bell {
+    fill: #4c6aa0;
+    transform-origin: center;
+    animation: flowerRotate 2s ease-in-out alternate infinite;
+}
+
+.flowers__bell-shadow {
+    fill: #375786;
+}
+
+
+.nature-screen__patch-two {
+    fill: colors.$forest-greenV2;
+}
+
+.nature-screen__patch-one {
+    fill: colors.$forest-greenV3;
+}
+
+
+.nature-screen__mountains {
+    fill: colors.$sky-blueV1;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+}
+
+html {
+    font-size: 1vw;
+    font-family: "Acme";
+    cursor:
+        url(../../svgs/circle.svg) 15 15,
+        move;
+}
+
+body {
+    user-select: none; // make text non-selectable
+}
+
+body::-webkit-scrollbar {
+    display: none;
+}
+
+.scene {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+
+    &__one {
+        background-color: #e8ecea;
+    }
+
+    &__two {
+        background-color: #bcc1d0;
+    }
+}
+
+.scene__fact-box {
+    font-size: 1.5rem;
+    position: absolute;
+    left: 50%;
+    bottom: -25vw;
+    padding: 1.5rem;
+    transform: translate(-50%, 50%);
+    width: 40ch;
+
+    &--forest {
+        border: 0.5rem solid colors.$forest-greenV4;
+        border-radius: 2%;
+        background-color: colors.$forest-bg;
+    }
+}
+
+.scene__container {
+    position: absolute;
+    bottom: 0;
+}
+
+.forest-intro__patch-one {
+    fill: colors.$forest-greenV4;
+}
+
+.forest-intro__patch-two {
+    fill: colors.$forest-greenV3;
+}
+
+.forest-intro__patch-three {
+    fill: colors.$forest-greenV2;
+}
+
+.forest-intro__patch-four {
+    fill: colors.$forest-greenV1;
+}
+
+.intro__headline {
+    font-size: 4.8rem;
+    font-family: "Amatic SC", sans-serif;
+    color: #e8ecea;
+    position: absolute;
+    left: 50%;
+    bottom: 10vw;
+    transform: translate(-50%, -50%);
+    font-weight: bold;
+}
+
+#deer {
+    bottom: 6.5vw;
+    right: 10%;
+    width: 10%;
+    fill: colors.$forest-greenV4;
+}
+
+#forest-intro {
+    width: 105%;
+    left: -2.5%;
+}
+
+#forest-intro__trees {
+    bottom: 2vw;
+    fill: colors.$forest-greenV4;
+    width: 105%;
+    left: -2.5%;
+}
+
+
+#gas-forest {
+    bottom: 32vw;
+}
+
+.gas--light {
+    fill: colors.$carbon-grayV1;
+}
+
+.gas--dark {
+    fill: colors.$carbon-grayV2;
+}
+
+.bulldozer {
+    width: 60vw;
+    left: -60%;
+    fill: colors.$bz-yellowV2;
+
+    &__pipe {
+        animation: pipeShake 1s linear infinite;
+        fill: colors.$blue-grayV3;
+
+        &--light {
+            fill: colors.$blue-grayV1;
+        }
+    }
+
+    &__suspension {
+        animation: rocking 1s alternate infinite steps(20, end);
+    }
+
+    &__base {
+        animation: upDown 1s alternate infinite;
+    }
+
+    &__wheel {
+        fill: colors.$blue-grayV1;
+        stroke-miterlimit: 10;
+
+        &--outer-circle {
+            stroke: #6E707C;
+        }
+
+        &--inner-circle {
+            stroke: #8B8F99;
+
+        }
+    }
+
+    &--main-light {
+        fill: colors.$bz-yellowV1;
+    }
+
+    &--main-mid {
+        fill: colors.$bz-yellowV3;
+    }
+}
+
+
+@keyframes bulldozerDrive {
+    100% {
+        left: 200%;
+    }
+}
+
+.bulldozer {
+    animation: bulldozerDrive 7s linear;
+}
+
+@keyframes fallTreeOne {
+    4% {
+        transform: translate(-2%, 30%) rotate(30deg);
+    }
+
+    8% {
+        transform: translate(-4%, 60%) rotate(60deg)
+    }
+
+    12% {
+        transform: translate(-6%, 90%) rotate(90deg);
+    }
+
+    16%,
+    100% {
+        transform: translate(-8%, 120%) rotate(120deg);
+    }
+}
+
+@keyframes fallTreeTwo {
+    8% {
+        transform: rotate(0deg);
+    }
+
+    12% {
+        transform: translate(-2%, 30%) rotate(30deg);
+    }
+
+    16% {
+        transform: translate(-4%, 60%) rotate(60deg)
+    }
+
+    20% {
+        transform: translate(-6%, 90%) rotate(90deg);
+    }
+
+    24%,
+    100% {
+        transform: translate(-8%, 120%) rotate(120deg);
+    }
+}
+
+@keyframes fallTreeThree {
+    34% {
+        transform: rotate(0deg);
+    }
+
+    38% {
+        transform: translate(-2%, 30%) rotate(30deg);
+    }
+
+    42% {
+        transform: translate(-4%, 60%) rotate(60deg)
+    }
+
+    46% {
+        transform: translate(-6%, 90%) rotate(90deg);
+    }
+
+    50%,
+    100% {
+        transform: translate(-8%, 120%) rotate(120deg);
+    }
+}
+
+@keyframes fallTreeFour {
+    38% {
+        transform: rotate(0deg);
+    }
+
+    42% {
+        transform: translate(-2%, 30%) rotate(30deg);
+    }
+
+    46% {
+        transform: translate(-4%, 60%) rotate(60deg)
+    }
+
+    52% {
+        transform: translate(-6%, 90%) rotate(90deg);
+    }
+
+    56%,
+    100% {
+        transform: translate(-8%, 120%) rotate(120deg);
+    }
+}
+
+@keyframes fallTreeFive {
+    42% {
+        transform: rotate(0deg);
+    }
+
+    46% {
+        transform: translate(-2%, 30%) rotate(30deg);
+    }
+
+    50% {
+        transform: translate(-4%, 60%) rotate(60deg)
+    }
+
+    54% {
+        transform: translate(-6%, 90%) rotate(90deg);
+    }
+
+    58%,
+    100% {
+        transform: translate(-8%, 120%) rotate(120deg);
+    }
+}
+
+.forest-intro__tree {
+    transform-origin: center;
+
+    &--one {
+        animation: fallTreeOne 7s linear;
+    }
+
+    &--two {
+        animation: fallTreeTwo 7s linear;
+    }
+
+    &--three {
+        animation: fallTreeThree 7s linear;
+    }
+
+    &--four {
+        animation: fallTreeFour 7s linear;
+    }
+
+    &--five {
+        animation: fallTreeFive 7s linear;
+    }
+}
