@@ -260,7 +260,7 @@ html {
   width: 120%;
   height: 0;
   transition: 1s;
-  bottom: -14%;
+  bottom: -18%;
   left: -5%;
 }
 .scene__water--active {
@@ -797,7 +797,7 @@ html {
   }
   100% {
     rotate: 0deg;
-    height: 110%;
+    height: 120%;
   }
 }
 @keyframes windowsOnAnimation {
