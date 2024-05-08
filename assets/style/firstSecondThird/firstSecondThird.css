@@ -55,9 +55,8 @@ html {
   position: absolute;
   transform: translate(-50%, 0%);
   left: 65%;
-  top: 35%;
+  top: 30%;
   padding: 2%;
-  text-align: center;
   font-size: clamp(14px, 3vw, 2.25rem);
   background-color: #C6DBDB;
 }
@@ -266,14 +265,14 @@ html {
   left: 0%;
 }
 .scene__water--active {
-  animation: waterAnimation 2s forwards, waterwaving 3s ease-in-out infinite 5.3s;
+  animation: waterAnimation 2s forwards;
 }
 .scene__clouds {
   transform: translate(-50%, -50%);
   top: calc((20vh + 3vw) / 2);
   left: 50%;
   position: absolute;
-  animation: cloudsAppear 5s forwards, cloudsGrow 30s forwards 13s;
+  animation: cloudsAppear 5s forwards;
 }
 .scene__cloud {
   position: absolute;
@@ -365,7 +364,7 @@ html {
 .scene__third--enabled {
   display: block;
   transition: 10.5;
-  animation: lastPartSceneThree 1s forwards 7s;
+  animation: lastPartSceneThree 1s forwards 4.5s;
 }
 .scene__third--active {
   display: block;
@@ -1546,5 +1545,11 @@ html {
   }
   100% {
     transform: rotateX(10deg) translateX(0.1%);
+  }
+}
+@media screen and (max-width: 500px) {
+  .scene__paragraph--five {
+    width: 60%;
+    left: 50%;
   }
 }/*# sourceMappingURL=firstSecondThird.css.map */
