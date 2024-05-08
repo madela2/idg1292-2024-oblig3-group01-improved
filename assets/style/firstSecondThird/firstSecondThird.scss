@@ -405,8 +405,6 @@ html {
         height: 100%;
         background-color: colors.$forest-bg;
 
-        &--first {}
-
         &--second,
         &--third {
             display: none;
@@ -617,18 +615,18 @@ html {
     //placed for animation
     &__tree {
         transform-origin: center;
+        transform-box: fill-box;
 
         &--one {
-            animation: fallTreeOne 7s linear 0.5s;
+            animation: fallTree 7s linear 0.5s;
         }
 
         &--two {
-            animation: fallTreeTwo 7s linear 2s;
-            transform-origin: 50% 50%;
+            animation: fallTree 7s linear 2s;
         }
 
         &--three {
-            animation: fallTreeThree 7s linear;
+            animation: fallTree 7s linear 2.2s;
         }
     }
 
@@ -1087,7 +1085,7 @@ html {
     }
 }
 
-@keyframes fallTreeOne {
+@keyframes fallTree {
     4% {
         transform: translate(-2%, 30%) rotate(30deg);
     }
@@ -1101,48 +1099,6 @@ html {
     }
 
     16%,
-    100% {
-        transform: translate(-8%, 120%) rotate(120deg);
-    }
-}
-
-@keyframes fallTreeTwo {
-    6% {
-        transform: translate(0%, 30%);
-    }
-
-    8% {
-        transform: translate(0%, 60%);
-    }
-
-    12% {
-        transform: translate(0%, 90%);
-    }
-
-    16%,
-    100% {
-        transform: translate(0%, 120%);
-    }
-}
-
-@keyframes fallTreeThree {
-    34% {
-        transform: rotate(0deg);
-    }
-
-    38% {
-        transform: translate(-2%, 30%) rotate(30deg);
-    }
-
-    42% {
-        transform: translate(-4%, 60%) rotate(60deg);
-    }
-
-    46% {
-        transform: translate(-6%, 90%) rotate(90deg);
-    }
-
-    50%,
     100% {
         transform: translate(-8%, 120%) rotate(120deg);
     }
@@ -2055,7 +2011,7 @@ html {
     }
 }
 
-// media queries for those with reduced motion preference
+// media queries for those who prefer reduced motion, e.g. making
 @media (prefers-reduced-motion: reduce) {
     .deer {
       animation: deerBodyMove 8s ease-in forwards 0.3s, deerOpacity 0.5s forwards 0.3s;

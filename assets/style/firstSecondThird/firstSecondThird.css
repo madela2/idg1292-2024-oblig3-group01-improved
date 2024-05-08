@@ -509,16 +509,16 @@ html {
 }
 .forest__tree {
   transform-origin: center;
+  transform-box: fill-box;
 }
 .forest__tree--one {
-  animation: fallTreeOne 7s linear 0.5s;
+  animation: fallTree 7s linear 0.5s;
 }
 .forest__tree--two {
-  animation: fallTreeTwo 7s linear 2s;
-  transform-origin: 50% 50%;
+  animation: fallTree 7s linear 2s;
 }
 .forest__tree--three {
-  animation: fallTreeThree 7s linear;
+  animation: fallTree 7s linear 2.2s;
 }
 .forest__patch--one {
   fill: #1e5e4b;
@@ -859,7 +859,7 @@ html {
     box-shadow: 0 0.3vw 1px 3px rgba(0, 0, 0, 0.523), 0 -5vw 10vw 5vw rgba(0, 0, 0, 0.3);
   }
 }
-@keyframes fallTreeOne {
+@keyframes fallTree {
   4% {
     transform: translate(-2%, 30%) rotate(30deg);
   }
@@ -870,37 +870,6 @@ html {
     transform: translate(-6%, 90%) rotate(90deg);
   }
   16%, 100% {
-    transform: translate(-8%, 120%) rotate(120deg);
-  }
-}
-@keyframes fallTreeTwo {
-  6% {
-    transform: translate(0%, 30%);
-  }
-  8% {
-    transform: translate(0%, 60%);
-  }
-  12% {
-    transform: translate(0%, 90%);
-  }
-  16%, 100% {
-    transform: translate(0%, 120%);
-  }
-}
-@keyframes fallTreeThree {
-  34% {
-    transform: rotate(0deg);
-  }
-  38% {
-    transform: translate(-2%, 30%) rotate(30deg);
-  }
-  42% {
-    transform: translate(-4%, 60%) rotate(60deg);
-  }
-  46% {
-    transform: translate(-6%, 90%) rotate(90deg);
-  }
-  50%, 100% {
     transform: translate(-8%, 120%) rotate(120deg);
   }
 }
@@ -1527,8 +1496,6 @@ html {
     transform: rotateX(10deg) translateX(0.1%);
   }
 }
-
-
 @media (prefers-reduced-motion: reduce) {
   .deer {
     animation: deerBodyMove 8s ease-in forwards 0.3s, deerOpacity 0.5s forwards 0.3s;
@@ -1555,7 +1522,8 @@ html {
     to {
       height: 100%;
     }
-
+  }
+}
 @media screen and (max-width: 500px) {
   .scene__paragraph--five {
     width: 60%;
