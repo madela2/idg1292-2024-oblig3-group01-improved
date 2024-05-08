@@ -650,12 +650,117 @@ html {
         z-index: 2;
         bottom: 0;
         left: -60vw;
+        fill: #DBBB6B;
 
 
         &--active {
             animation: bulldozerDrive 4s linear forwards;
         }
     }
+
+    &__group--pipe {
+        animation: pipeShake 0.5s linear infinite;
+        fill: #6E707C;
+    }
+
+    &__group--lift {
+        animation: rocking 0.5s alternate infinite;
+    }
+
+    &__group--body {
+        animation: upDown 0.5s alternate infinite;
+    }
+
+    &__yellow-light {
+        fill: #EBCA71;
+    }
+
+    &__yellow-mid {
+        fill: #C1A35E;
+    }
+
+    &__yellow-dark {
+        fill: #947B4A;
+    }
+
+    &__grey-light {
+        fill: #B1B7C9;
+    }
+
+    &__grey-mid {
+        fill: #8B8F99;
+    }
+
+    &__grey-dark {
+        fill: #6E707C;
+    }
+
+    &__grey-xdark {
+        fill: #5F6269;
+    }
+}
+
+
+@keyframes bulldozerDrive {
+    100% {
+        left: 200%;
+    }
+}
+
+@keyframes rocking {
+    from {
+        transform: rotate(0) translateY(-30px);
+    }
+
+    to {
+        transform: rotate(2deg) translateY(-40px);
+    }
+}
+
+@keyframes upDown {
+    from {
+        transform: translateY(0);
+    }
+
+    to {
+        transform: translateY(10px);
+    }
+}
+
+@keyframes pipeShake {
+
+    0%,
+    50%,
+    100% {
+        transform: translateX(0);
+    }
+
+    25% {
+        transform: translateX(2px);
+    }
+
+    75% {
+        transform: translateX(-2px);
+    }
+}
+
+@keyframes rotateWheel {
+    from {
+        transform: rotate(0);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.bulldozer__group--wheel {
+    transform-origin: center;
+    animation: rotateWheel 0.8s infinite;
+    transform-box: fill-box;
+    fill: #B1B7C9;
+    stroke-width: 4;
+    stroke: #8B8F99;
 }
 
 @keyframes sceneThreeAnimation {
