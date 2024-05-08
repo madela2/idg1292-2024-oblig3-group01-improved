@@ -17,6 +17,11 @@ const water = document.querySelector('.scene__water');
 const sceneThreeContainer = document.querySelector('.scene__container');
 const [parOne, parTwo, parThree, parFour] = [document.querySelector('.scene__paragraph--one'), document.querySelector('.scene__paragraph--two'), document.querySelector('.scene__paragraph--three'), document.querySelector('.scene__paragraph--four')];
 const sceneOneSvgs = [forestSvg, bulldozer, treesSvg, deer];
+const plantChbx = document.querySelector(".planes__checkbox");
+const seed = document.querySelector(".planes__seed");
+const seedPath = seed.querySelector(".planes__path");
+const sThreeP_two = document.querySelector(".scene__third--second");
+const sThreeP_three = document.querySelector(".scene__third--third");
 let [activeParOneOpacity, activeParTwoOpacity, forestPatchPosition, paragraphOnePosition, paragraphTwoPosition, activeParThreeOpacity, paragraphThreePosition, paragraphFourPosition, activeParFourOpacity] = [0, 0, 0, 0, 0, 0, 0, 0, 0]
 let [activeParagraphThree, activeParagraphOne, activeParagraphTwo, activeParagraphFour, secondSceneInitiation, firstPhaseThree, secondPhaseTwo] = [undefined, undefined, undefined, undefined, false, false, false];
 
@@ -73,8 +78,8 @@ function sceneTwoPhaseTwo(event) {
 function sceneTwoPhaseThree(par) {
     const pTop = (par.getBoundingClientRect().top + par.getBoundingClientRect().height) / window.innerHeight * 100 < 0;
     const list = secondScene.classList.contains('scene__second--disabled');
-    pTop && !list ? secondScene.classList.add('scene__second--disabled') + patches.forEach(patch => patch.classList.remove('forest__patch--grey')) + sceneOne.classList.remove('scene__one--dark') : null;
-    !pTop && list ? secondScene.classList.remove('scene__second--disabled') + patches.forEach(patch => patch.classList.add('forest__patch--grey')) + sceneOne.classList.add('scene__one--dark') : null;
+    pTop && !list ? secondScene.classList.add('scene__second--disabled') + sceneThreeContainer.classList.add('scene__container--active') + patches.forEach(patch => patch.classList.remove('forest__patch--grey')) + sceneOne.classList.remove('scene__one--dark') : null;
+    !pTop && list ? secondScene.classList.remove('scene__second--disabled') + sceneThreeContainer.classList.remove('scene__container--active') + patches.forEach(patch => patch.classList.add('forest__patch--grey')) + sceneOne.classList.add('scene__one--dark') : null;
 
 }
 
@@ -107,6 +112,19 @@ const observer = new IntersectionObserver((entries) => {
         rootMargin: '0px',
         threshold: 0
     });
+plantChbx.addEventListener("change", () => {
+    if (plantChbx.checked) {
+        seed.classList.add("planes__seed--active");
+        seedPath.classList.add("planes__path--active");
+        sThreeP_two.classList.add("scene__third--active");
+        sThreeP_three.classList.add("scene__third--enabled");
+    } else if (seed.classList.contains("planes__seed--active")) {
+        seed.classList.remove("planes__seed--active");
+        seedPath.classList.remove("planes__path--active");
+        sThreeP_two.classList.remove("scene__third--active");
+        sThreeP_three.classList.remove("scene__third--enabled");
+    }
+});
 
 observer.observe(parOne);
 observer.observe(bulldozer);
