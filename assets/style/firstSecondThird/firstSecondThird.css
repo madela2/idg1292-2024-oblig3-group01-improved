@@ -34,22 +34,31 @@ html {
   z-index: 1;
   box-shadow: 0px 0px 2vw 1vw rgba(0, 0, 0, 0.381);
 }
-.scene__paragraph--oneactive {
+.scene__paragraph--one {
   opacity: calc(0 + var(--paragraph-opacity, 1));
   top: calc(65% + var(--paragraph-pos, 65%));
 }
-.scene__paragraph--twoactive {
+.scene__paragraph--two {
   opacity: calc(0 + var(--paragraph-opacity, 1));
   top: calc(65% + var(--paragraph-pos, 65%));
 }
-.scene__paragraph--threeactive {
+.scene__paragraph--three {
   opacity: calc(0 + var(--paragraph-opacity, 1));
   top: calc(75% + var(--paragraph-pos, 75%));
 }
-.scene__paragraph--fouractive {
+.scene__paragraph--four {
   z-index: 3;
   opacity: calc(0 + var(--paragraph-opacity, 1));
   top: calc(75% + var(--paragraph-pos, 75%));
+}
+.scene__paragraph--five {
+  position: absolute;
+  transform: translate(-50%, 0%);
+  left: 65%;
+  top: 30%;
+  padding: 2%;
+  font-size: clamp(14px, 3vw, 2.25rem);
+  background-color: #C6DBDB;
 }
 .scene__one {
   position: absolute;
@@ -256,14 +265,14 @@ html {
   left: 0%;
 }
 .scene__water--active {
-  animation: waterAnimation 2s forwards, waterwaving 3s ease-in-out infinite 5.3s;
+  animation: waterAnimation 2s forwards;
 }
 .scene__clouds {
   transform: translate(-50%, -50%);
   top: calc((20vh + 3vw) / 2);
   left: 50%;
   position: absolute;
-  animation: cloudsAppear 5s forwards, cloudsGrow 30s forwards 13s;
+  animation: cloudsAppear 5s forwards;
 }
 .scene__cloud {
   position: absolute;
@@ -355,7 +364,7 @@ html {
 .scene__third--enabled {
   display: block;
   transition: 10.5;
-  animation: lastPartSceneThree 1s forwards 7s;
+  animation: lastPartSceneThree 1s forwards 4.5s;
 }
 .scene__third--active {
   display: block;
@@ -1518,6 +1527,8 @@ html {
     transform: rotateX(10deg) translateX(0.1%);
   }
 }
+
+
 @media (prefers-reduced-motion: reduce) {
   .deer {
     animation: deerBodyMove 8s ease-in forwards 0.3s, deerOpacity 0.5s forwards 0.3s;
@@ -1544,5 +1555,10 @@ html {
     to {
       height: 100%;
     }
+
+@media screen and (max-width: 500px) {
+  .scene__paragraph--five {
+    width: 60%;
+    left: 50%;
   }
 }/*# sourceMappingURL=firstSecondThird.css.map */

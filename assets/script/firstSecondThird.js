@@ -15,7 +15,7 @@ const deer = document.querySelector('.forest__deer');
 const allClouds = document.querySelectorAll('.scene__cloud');
 const water = document.querySelector('.scene__water');
 const sceneThreeContainer = document.querySelector('.scene__container');
-const [parOne, parTwo, parThree, parFour] = [document.querySelector('.scene__paragraph--one'), document.querySelector('.scene__paragraph--two'), document.querySelector('.scene__paragraph--three'), document.querySelector('.scene__paragraph--four')];
+const [parOne, parTwo, parThree, parFour] = [document.querySelector('#scene__paragraph--one'), document.querySelector('#scene__paragraph--two'), document.querySelector('#scene__paragraph--three'), document.querySelector('#scene__paragraph--four')];
 const sceneOneSvgs = [forestSvg, bulldozer, treesSvg, deer];
 const plantChbx = document.querySelector(".planes__checkbox");
 const seed = document.querySelector(".planes__seed");
@@ -24,6 +24,7 @@ const sThreeP_two = document.querySelector(".scene__third--second");
 const sThreeP_three = document.querySelector(".scene__third--third");
 let [activeParOneOpacity, activeParTwoOpacity, forestPatchPosition, paragraphOnePosition, paragraphTwoPosition, activeParThreeOpacity, paragraphThreePosition, paragraphFourPosition, activeParFourOpacity] = [0, 0, 0, 0, 0, 0, 0, 0, 0]
 let [activeParagraphThree, activeParagraphOne, activeParagraphTwo, activeParagraphFour, secondSceneInitiation, firstPhaseThree, secondPhaseTwo] = [undefined, undefined, undefined, undefined, false, false, false];
+let scrollable = true;
 
 scene.removeChild(secondScene);
 
@@ -37,8 +38,8 @@ function InitiatesecondSceneCss() {
 }
 
 function sceneOnePhaseTwo(event) {
-    !parOne.classList.contains('scene__paragraph--oneactive') ? parOne.classList.add('scene__paragraph--oneactive') : null;
-    activeParagraphOne = document.querySelector('.scene__paragraph--oneactive');
+    !parOne.classList.contains(parOne.id) ? parOne.classList.add(parOne.id) : null;
+    activeParagraphOne = document.querySelector('.scene__paragraph--one');
     //DONT modify below line: Very hard to figure out! Calculation value used in scss for paragraph opacity.
     activeParOneOpacity = ((((window.innerHeight / window.innerHeight * 100) - (activeParagraphOne.getBoundingClientRect().top / window.innerHeight * 100 + activeParagraphOne.getBoundingClientRect().height / window.innerHeight * 100)) / 120) * 2) * 2;
     //gives value to variables used in scssso position is done in css: To allow for scrolling without scrolling the webpage or having overflow
@@ -49,8 +50,8 @@ function sceneOnePhaseTwo(event) {
 }
 //gives/removes classname to second paragraph and gives values to variables used in css
 function sceneOnePhaseThree(event) {
-    !parTwo.classList.contains('scene__paragraph--twoactive') ? parTwo.classList.add('scene__paragraph--twoactive') : (parOne.getBoundingClientRect().top > 0 ? parTwo.classList.remove('scene__paragraph--twoactive') + (firstPhaseThree = false) : null);
-    activeParagraphTwo = document.querySelector('.scene__paragraph--twoactive');
+    !parTwo.classList.contains(parTwo.id) ? parTwo.classList.add(parTwo.id) : (parOne.getBoundingClientRect().top > 0 ? parTwo.classList.remove(parTwo.id) + (firstPhaseThree = false) : null);
+    activeParagraphTwo = document.querySelector('.scene__paragraph--two');
     activeParTwoOpacity = (firstPhaseThree ? ((((window.innerHeight / window.innerHeight * 100) - (activeParagraphTwo.getBoundingClientRect().top / window.innerHeight * 100 + activeParagraphTwo.getBoundingClientRect().height / window.innerHeight * 100)) / 120) * 2) * 2 : 0);
     event.deltaY < 0 ? paragraphTwoPosition++ : paragraphTwoPosition--;
     firstPhaseThree ? activeParagraphTwo.style.setProperty('--paragraph-pos', `${paragraphTwoPosition.toString() * 10}px`) : null;
@@ -58,18 +59,18 @@ function sceneOnePhaseThree(event) {
 }
 
 function sceneTwoPhaseOne(event) {
-    secondSceneInitiation ? (!parThree.classList.contains('scene__paragraph--threeactive') ? parThree.classList.add('scene__paragraph--threeactive') : null) : (parThree.classList.contains('scene__paragraph--threeactive') ? parThree.classList.remove('scene__paragraph--threeactive') : null);
+    secondSceneInitiation ? (!parThree.classList.contains(parThree.id) ? parThree.classList.add(parThree.id) : null) : (parThree.classList.contains(parThree.id) ? parThree.classList.remove(parThree.id) : null);
     secondSceneInitiation ? (event.deltaY < 0 ? paragraphThreePosition++ : paragraphThreePosition--) : null;
-    secondSceneInitiation ? activeParagraphThree = document.querySelector('.scene__paragraph--threeactive') : undefined;
+    secondSceneInitiation ? activeParagraphThree = document.querySelector('.scene__paragraph--three') : undefined;
     activeParThreeOpacity = secondSceneInitiation ? ((((window.innerHeight / window.innerHeight * 100) - (activeParagraphThree.getBoundingClientRect().top / window.innerHeight * 100 + activeParagraphThree.getBoundingClientRect().height / window.innerHeight * 100)) / 120) * 2) * 2 : 0;
     secondSceneInitiation ? activeParagraphThree.style.setProperty('--paragraph-pos', `${paragraphThreePosition.toString() * 10}px`) : null;
     secondSceneInitiation ? activeParagraphThree.style.setProperty('--paragraph-opacity', `${activeParThreeOpacity.toString()}`) : null;
 }
 
 function sceneTwoPhaseTwo(event) {
-    secondPhaseTwo ? (!parFour.classList.contains('scene__paragraph--fouractive') ? parFour.classList.add('scene__paragraph--fouractive') : null) : (parFour.classList.contains('scene__paragraph--fouractive') ? parFour.classList.remove('scene__paragraph--fouractive') : null);
+    secondPhaseTwo ? (!parFour.classList.contains(parFour.id) ? parFour.classList.add(parFour.id) : null) : (parFour.classList.contains(parFour.id) ? parFour.classList.remove(parFour.id) : null);
     secondPhaseTwo ? (event.deltaY < 0 ? paragraphFourPosition++ : paragraphFourPosition--) : null;
-    secondPhaseTwo ? activeParagraphFour = document.querySelector('.scene__paragraph--fouractive') : undefined;
+    secondPhaseTwo ? activeParagraphFour = document.querySelector('.scene__paragraph--four') : undefined;
     activeParFourOpacity = secondPhaseTwo ? ((((window.innerHeight / window.innerHeight * 100) - (activeParagraphFour.getBoundingClientRect().top / window.innerHeight * 100 + activeParagraphFour.getBoundingClientRect().height / window.innerHeight * 100)) / 120) * 2) * 2 : 0;
     secondPhaseTwo ? activeParagraphFour.style.setProperty('--paragraph-pos', `${paragraphFourPosition.toString() * 10}px`) : null;
     secondPhaseTwo ? activeParagraphFour.style.setProperty('--paragraph-opacity', `${activeParFourOpacity.toString()}`) : null;
@@ -81,15 +82,19 @@ function scTwoPthreeScThree(par) {
     pTop && !list ? secondScene.classList.add('scene__second--disabled') + sceneThreeContainer.classList.add('scene__container--active') + patches.forEach(patch => patch.classList.remove('forest__patch--grey')) + sceneOne.classList.remove('scene__one--dark') : null;
     !pTop && list ? secondScene.classList.remove('scene__second--disabled') + sceneThreeContainer.classList.remove('scene__container--active') + (plantChbx.checked = false) + patches.forEach(patch => patch.classList.add('forest__patch--grey')) + sceneOne.classList.add('scene__one--dark') : null;
     !plantChbx.checked ? seed.classList.remove("planes__seed--active") + seedPath.classList.remove("planes__path--active") + sThreeP_two.classList.remove("scene__third--active") + sThreeP_three.classList.remove("scene__third--enabled") : null;
+
 }
 
 document.addEventListener('wheel', (event) => {
-    const patchPosition = (forestPatchPosition = forestPatchPosition > 0 ? 0 : forestPatchPosition).toString() * 25;
-    leftPatchVal.getBoundingClientRect().left < -40 ? (event.deltaY < 0 ? forestPatchPosition++ : forestPatchPosition--) : sceneOnePhaseTwo(event);
-    firstPhaseThree ? sceneOnePhaseThree(event) : null;
-    patches.forEach(patch => patch.style.setProperty('--patch-pos', `${patchPosition}px`));
-    secondSceneInitiation ? sceneTwoPhaseOne(event) : sceneTwoPhaseOne(event);
-    secondPhaseTwo ? sceneTwoPhaseTwo(event) : sceneTwoPhaseTwo(event);
+    scrollable = (parFour.getBoundingClientRect().top + parFour.getBoundingClientRect().height) / window.innerHeight * 100 < -40 && event.deltaY > 0 ? false : true;
+    if (scrollable) {
+        const patchPosition = (forestPatchPosition = forestPatchPosition > 0 ? 0 : forestPatchPosition).toString() * 25;
+        leftPatchVal.getBoundingClientRect().left < -40 ? (event.deltaY < 0 ? forestPatchPosition++ : forestPatchPosition--) : sceneOnePhaseTwo(event);
+        firstPhaseThree ? sceneOnePhaseThree(event) : null;
+        patches.forEach(patch => patch.style.setProperty('--patch-pos', `${patchPosition}px`));
+        secondSceneInitiation ? sceneTwoPhaseOne(event) : sceneTwoPhaseOne(event);
+        secondPhaseTwo ? sceneTwoPhaseTwo(event) : sceneTwoPhaseTwo(event);
+    }
 });
 
 const observer = new IntersectionObserver((entries) => {
