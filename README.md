@@ -1,6 +1,6 @@
 # Project overview and purpose
 
-In this obligatory assignment, we've been tasked to create an engaging story based on one of UN's Sustainable Development Goal using CSS, SVGs, animations, and scroll- and storytelling techniques. We chose Goal 15: "Life on land", wishing to focus on the importance of trees when it comes to fighting against the climate battle, and consequences of deforestation on our planet. The ultimate purpose of the project is to raise awareness about this issue, and inspire action towards conservation efforts among the viewers. You can view our story here: (link to Github pages).
+In this obligatory assignment, we've been tasked to create an engaging story based on one of UN's Sustainable Development Goal using CSS, SVGs, animations, and scroll- and storytelling techniques. We chose Goal 15: "Life on land", wishing to focus on the importance of trees when it comes to fighting against the climate battle, and consequences of deforestation on our planet. The ultimate purpose of the project is to raise awareness about this issue, and inspire action towards conservation efforts among the viewers. You can view our story here: [(link to Github pages)](https://advancedcss2024.github.io/idg1292-2024-oblig3-group01/).
 
 ## Brainstorming
 
