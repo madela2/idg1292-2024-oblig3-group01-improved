@@ -104,7 +104,7 @@ html {
 }
 .scene__second--disabled {
   transition: 0.8s ease-in-out;
-  height: 0%;
+  bottom: 100%;
   overflow: hidden;
 }
 .scene__building {
@@ -332,13 +332,14 @@ html {
   opacity: 0;
 }
 .scene__container--active {
-  top: 0;
+  top: 100%;
   left: 0;
   position: absolute;
   width: 100%;
   height: 100%;
   opacity: 1;
   z-index: 3;
+  animation: ApearThirdScene 0.8s ease-in-out forwards;
 }
 .scene__third {
   position: absolute;
@@ -370,14 +371,21 @@ html {
   position: absolute;
 }
 
-.planes__label {
+.planes__container {
   position: absolute;
-  z-index: 2;
+  transform: translate(-50%, 0%);
   left: 50%;
-  top: 20%;
-  transform: translate(-50%, -50%);
+  top: 3%;
+  display: flex;
+  gap: 5px;
+  flex-direction: column;
+  align-items: center;
+}
+.planes__label {
+  z-index: 2;
   padding: 1% 2%;
-  font-size: 1.5em;
+  font-size: 1.4em;
+  border-radius: 3px;
   border: solid rgb(44, 44, 44) 1px;
   background-color: #e8ecea;
 }
@@ -388,11 +396,7 @@ html {
   display: none;
 }
 .planes__text {
-  position: absolute;
-  left: 25%;
-  width: 50%;
-  top: 50%;
-  padding: 5%;
+  padding: 2%;
   text-align: center;
   box-shadow: 0px 0px 2vw 1vw rgba(0, 0, 0, 0.381);
   background-color: #e8ecea;
@@ -575,6 +579,14 @@ html {
   fill: #5F6269;
 }
 
+@keyframes ApearThirdScene {
+  0% {
+    top: 100%;
+  }
+  100% {
+    top: 0%;
+  }
+}
 @keyframes bulldozerDrive {
   100% {
     left: 200%;
