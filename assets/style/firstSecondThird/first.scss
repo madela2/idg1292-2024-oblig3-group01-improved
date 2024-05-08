@@ -1,0 +1,310 @@
+@use "animation.scss";
+@use "colors.scss";
+
+// default styling
+* {
+    box-sizing: border-box;
+    margin: 0;
+}
+
+html {
+    font-size: 1vw;
+    font-family: "Acme";
+    cursor:
+        url(../../svgs/circle.svg) 15 15,
+        move;
+}
+
+body {
+    user-select: none; // make text non-selectable
+}
+
+body::-webkit-scrollbar {
+    display: none;
+}
+
+.scene {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+
+    &__one {
+        background-color: #e8ecea;
+    }
+
+    &__two {
+        background-color: #bcc1d0;
+    }
+}
+
+.scene__fact-box {
+    font-size: 1.5rem;
+    position: absolute;
+    left: 50%;
+    bottom: -25vw;
+    padding: 1.5rem;
+    transform: translate(-50%, 50%);
+    width: 40ch;
+
+    &--forest {
+        border: 0.5rem solid colors.$forest-greenV4;
+        border-radius: 2%;
+        background-color: colors.$forest-bg;
+    }
+}
+
+.scene__container {
+    position: absolute;
+    bottom: 0;
+}
+
+.forest-intro__patch-one {
+    fill: colors.$forest-greenV4;
+}
+
+.forest-intro__patch-two {
+    fill: colors.$forest-greenV3;
+}
+
+.forest-intro__patch-three {
+    fill: colors.$forest-greenV2;
+}
+
+.forest-intro__patch-four {
+    fill: colors.$forest-greenV1;
+}
+
+.intro__headline {
+    font-size: 4.8rem;
+    font-family: "Amatic SC", sans-serif;
+    color: #e8ecea;
+    position: absolute;
+    left: 50%;
+    bottom: 10vw;
+    transform: translate(-50%, -50%);
+    font-weight: bold;
+}
+
+#deer {
+    bottom: 6.5vw;
+    right: 10%;
+    width: 10%;
+    fill: colors.$forest-greenV4;
+}
+
+#forest-intro {
+    width: 105%;
+    left: -2.5%;
+}
+
+#forest-intro__trees {
+    bottom: 2vw;
+    fill: colors.$forest-greenV4;
+    width: 105%;
+    left: -2.5%;
+}
+
+
+#gas-forest {
+    bottom: 32vw;
+}
+
+.gas--light {
+    fill: colors.$carbon-grayV1;
+}
+
+.gas--dark {
+    fill: colors.$carbon-grayV2;
+}
+
+.bulldozer {
+    width: 60vw;
+    left: -60%;
+    fill: colors.$bz-yellowV2;
+
+    &__pipe {
+        animation: pipeShake 1s linear infinite;
+        fill: colors.$blue-grayV3;
+
+        &--light {
+            fill: colors.$blue-grayV1;
+        }
+    }
+
+    &__suspension {
+        animation: rocking 1s alternate infinite steps(20, end);
+    }
+
+    &__base {
+        animation: upDown 1s alternate infinite;
+    }
+
+    &__wheel {
+        fill: colors.$blue-grayV1;
+        stroke-miterlimit: 10;
+
+        &--outer-circle {
+            stroke: #6E707C;
+        }
+
+        &--inner-circle {
+            stroke: #8B8F99;
+
+        }
+    }
+
+    &--main-light {
+        fill: colors.$bz-yellowV1;
+    }
+
+    &--main-mid {
+        fill: colors.$bz-yellowV3;
+    }
+}
+
+
+@keyframes bulldozerDrive {
+    100% {
+        left: 200%;
+    }
+}
+
+.bulldozer {
+    animation: bulldozerDrive 7s linear;
+}
+
+@keyframes fallTreeOne {
+    4% {
+        transform: translate(-2%, 30%) rotate(30deg);
+    }
+
+    8% {
+        transform: translate(-4%, 60%) rotate(60deg)
+    }
+
+    12% {
+        transform: translate(-6%, 90%) rotate(90deg);
+    }
+
+    16%,
+    100% {
+        transform: translate(-8%, 120%) rotate(120deg);
+    }
+}
+
+@keyframes fallTreeTwo {
+    8% {
+        transform: rotate(0deg);
+    }
+
+    12% {
+        transform: translate(-2%, 30%) rotate(30deg);
+    }
+
+    16% {
+        transform: translate(-4%, 60%) rotate(60deg)
+    }
+
+    20% {
+        transform: translate(-6%, 90%) rotate(90deg);
+    }
+
+    24%,
+    100% {
+        transform: translate(-8%, 120%) rotate(120deg);
+    }
+}
+
+@keyframes fallTreeThree {
+    34% {
+        transform: rotate(0deg);
+    }
+
+    38% {
+        transform: translate(-2%, 30%) rotate(30deg);
+    }
+
+    42% {
+        transform: translate(-4%, 60%) rotate(60deg)
+    }
+
+    46% {
+        transform: translate(-6%, 90%) rotate(90deg);
+    }
+
+    50%,
+    100% {
+        transform: translate(-8%, 120%) rotate(120deg);
+    }
+}
+
+@keyframes fallTreeFour {
+    38% {
+        transform: rotate(0deg);
+    }
+
+    42% {
+        transform: translate(-2%, 30%) rotate(30deg);
+    }
+
+    46% {
+        transform: translate(-4%, 60%) rotate(60deg)
+    }
+
+    52% {
+        transform: translate(-6%, 90%) rotate(90deg);
+    }
+
+    56%,
+    100% {
+        transform: translate(-8%, 120%) rotate(120deg);
+    }
+}
+
+@keyframes fallTreeFive {
+    42% {
+        transform: rotate(0deg);
+    }
+
+    46% {
+        transform: translate(-2%, 30%) rotate(30deg);
+    }
+
+    50% {
+        transform: translate(-4%, 60%) rotate(60deg)
+    }
+
+    54% {
+        transform: translate(-6%, 90%) rotate(90deg);
+    }
+
+    58%,
+    100% {
+        transform: translate(-8%, 120%) rotate(120deg);
+    }
+}
+
+.forest-intro__tree {
+    transform-origin: center;
+
+    &--one {
+        animation: fallTreeOne 7s linear;
+    }
+
+    &--two {
+        animation: fallTreeTwo 7s linear;
+    }
+
+    &--three {
+        animation: fallTreeThree 7s linear;
+    }
+
+    &--four {
+        animation: fallTreeFour 7s linear;
+    }
+
+    &--five {
+        animation: fallTreeFive 7s linear;
+    }
+}
