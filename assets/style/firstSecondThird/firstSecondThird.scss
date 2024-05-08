@@ -497,7 +497,7 @@ html {
   &__seed {
     position: absolute;
     width: 5%;
-    fill: #574940;
+    fill: colors.$dark-woodV1;
     left: 30%;
     bottom: 42vw;
     opacity: 0;
@@ -947,8 +947,8 @@ html {
 @keyframes cloudsTurnGreen {
   100% {
     opacity: 1;
-    background-color: rgb(70, 84, 70);
-    box-shadow: 0px 0px 1.5vw 2vw rgb(70, 84, 70);
+    background-color: rgb(75, 76, 75);
+    box-shadow: 0px 0px 1.5vw 2vw rgb(75, 76, 75);
   }
 }
 
