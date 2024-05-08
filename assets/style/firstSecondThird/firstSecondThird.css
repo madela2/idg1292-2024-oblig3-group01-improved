@@ -34,22 +34,32 @@ html {
   z-index: 1;
   box-shadow: 0px 0px 2vw 1vw rgba(0, 0, 0, 0.381);
 }
-.scene__paragraph--oneactive {
+.scene__paragraph--one {
   opacity: calc(0 + var(--paragraph-opacity, 1));
   top: calc(65% + var(--paragraph-pos, 65%));
 }
-.scene__paragraph--twoactive {
+.scene__paragraph--two {
   opacity: calc(0 + var(--paragraph-opacity, 1));
   top: calc(65% + var(--paragraph-pos, 65%));
 }
-.scene__paragraph--threeactive {
+.scene__paragraph--three {
   opacity: calc(0 + var(--paragraph-opacity, 1));
   top: calc(75% + var(--paragraph-pos, 75%));
 }
-.scene__paragraph--fouractive {
+.scene__paragraph--four {
   z-index: 3;
   opacity: calc(0 + var(--paragraph-opacity, 1));
   top: calc(75% + var(--paragraph-pos, 75%));
+}
+.scene__paragraph--five {
+  position: absolute;
+  transform: translate(-50%, 0%);
+  left: 65%;
+  top: 35%;
+  padding: 2%;
+  text-align: center;
+  font-size: clamp(14px, 3vw, 2.25rem);
+  background-color: #C6DBDB;
 }
 .scene__one {
   position: absolute;
@@ -528,11 +538,11 @@ html {
   opacity: 0.4;
 }
 .forest__patch--left {
-  transform: translateX(calc(-50% - var(--patch-pos, 0px)));
+  transform: translateX(calc(-51% - var(--patch-pos, 0px)));
   position: absolute;
 }
 .forest__patch--right {
-  transform: translateX(calc(50% + var(--patch-pos, 0px)));
+  transform: translateX(calc(51% + var(--patch-pos, 0px)));
   position: absolute;
 }
 

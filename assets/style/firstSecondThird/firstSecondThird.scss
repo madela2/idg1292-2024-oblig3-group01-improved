@@ -43,25 +43,39 @@ html {
         z-index: 1;
         box-shadow: 0px 0px 2vw 1vw rgba(0, 0, 0, 0.381);
 
-        &--oneactive {
+        &--one {
             opacity: calc(0 + var(--paragraph-opacity, 1));
             top: calc(65% + var(--paragraph-pos, 65%));
         }
 
-        &--twoactive {
+        &--two {
             opacity: calc(0 + var(--paragraph-opacity, 1));
             top: calc(65% + var(--paragraph-pos, 65%));
         }
 
-        &--threeactive {
+        &--three {
             opacity: calc(0 + var(--paragraph-opacity, 1));
             top: calc(75% + var(--paragraph-pos, 75%));
         }
 
-        &--fouractive {
+        &--four {
             z-index: 3;
             opacity: calc(0 + var(--paragraph-opacity, 1));
             top: calc(75% + var(--paragraph-pos, 75%));
+        }
+
+        &--five {
+            position: absolute;
+            transform: translate(-50%, 0%);
+            left: 65%;
+            top: 35%;
+            padding: 2%;
+            text-align: center;
+            font-size: clamp(14px, 3vw, 2.25rem);
+
+            ;
+            //box-shadow: 0px 0px 2vw 1vw rgba(0, 0, 0, 0.381);
+            background-color: colors.$sky-blueV1;
         }
     }
 
@@ -647,12 +661,12 @@ html {
         }
 
         &--left {
-            transform: translateX(calc(-50% - var(--patch-pos, 0px)));
+            transform: translateX(calc(-51% - var(--patch-pos, 0px)));
             position: absolute;
         }
 
         &--right {
-            transform: translateX(calc(50% + var(--patch-pos, 0px)));
+            transform: translateX(calc(51% + var(--patch-pos, 0px)));
             position: absolute;
         }
     }
@@ -1886,10 +1900,10 @@ html {
     &__patch-two {
         fill: colors.$forest-greenV2;
     }
-    
+
     &__patch-one {
         fill: colors.$forest-greenV3;
-    }  
+    }
 }
 
 .nature__leaves {
@@ -1916,18 +1930,18 @@ html {
         animation: flapWings 2s ease-in-out alternate;
         fill: #943737;
     }
-    
+
     &__blush {
         fill: #e05b5a;
     }
-    
+
     &__stomach {
         fill: #e5e0c7;
     }
-    
+
     &__details {
         fill: #602526;
-    }    
+    }
 }
 
 .nature__tree {
@@ -1937,11 +1951,11 @@ html {
     &-highlight {
         fill: colors.$earth-brownV1;
     }
-    
+
     &-mid {
         fill: colors.$earth-brownV4;
     }
-    
+
     &-shadow {
         fill: colors.$earth-brownV5;
     }
@@ -2083,4 +2097,3 @@ html {
         transform: rotateX(10deg) translateX(0.1%);
     }
 }
-
