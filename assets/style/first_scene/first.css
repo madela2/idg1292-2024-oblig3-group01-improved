@@ -117,7 +117,9 @@ html {
 
 body {
   height: 100vh;
-  user-select: none;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
 }
 
 body::-webkit-scrollbar {
