@@ -13,7 +13,7 @@ It was important to create a storyboard to know how to proceed with the implemen
 ![Storyboard v1](assets/images/storyboard-v1.webp)
 ![Storyboard v2](assets/images/storyboard-v2.webp)
 
-We decided on a simplistic art style with distinctive silhouettes to make sure our story was easily understandable. The overall style was consistent due to us drawing everything ourselves in a similar manner, and having a limited color palette that was vibrant but slightly muted. In the end, we didn't adhere to either of the storyboards, as we found out certain parts were unecessary along the way.
+We decided on a simplistic art style with distinctive silhouettes to make sure our story was easily understandable. The overall style was consistent due to us drawing everything ourselves in a similar manner, and having a limited color palette that was vibrant but slightly muted. In the end, we didn't adhere fully to either of the storyboards, as we found out certain parts were unecessary along the way.
 
 We aimed to create a story that everyone could easily engage with by keeping important UX design principles in mind from the start, such as consistency, accessibility (contrast, reduced motion), and a clear visual hierachy.
 
@@ -23,7 +23,7 @@ The technology stack employed is HTML, CSS and JS. The animations are exclusivel
 
 Observers were used mainly to see when elements exited/entered the window which then managed states of booleans. It also called functions and added/removed classnames depending on states of booleans and/or positioning of elements.
 
-Eventlisteners were also used. Managing some booleans and most of all scrolling, which initiates functions based on the parameters set. Since the page itself "still", the scrolling is managed by eventlistener "wheel": Calls functions which then update the value stored in variables accessed in scss, so all styling is done in scss.
+EventListeners were also used. Managing some booleans and most of all scrolling, which initiates functions based on the parameters set. Since the page itself was "still", the scrolling is managed by eventListener "wheel": calls functions which then update the value stored in variables accessed in .scss, so all styling is done in .scss.
 
 ### List of animations
 
