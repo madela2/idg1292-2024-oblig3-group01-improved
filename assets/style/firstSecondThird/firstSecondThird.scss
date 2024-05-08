@@ -80,6 +80,7 @@ html {
         width: 100%;
         overflow: hidden;
         transform: translate(-50%, -50%);
+        font-family: "Amatic SC", sans-serif;
         top: 40%;
         left: 50%;
         position: absolute;
@@ -428,7 +429,6 @@ html {
         position: absolute;
     }
 }
-
 
 .planes {
     &__container {
@@ -1876,3 +1876,211 @@ html {
         opacity: 1;
     }
 }
+
+// for the ending scenes
+.nature {
+    &__mountains {
+        fill: colors.$sky-blueV1;
+    }
+
+    &__patch-two {
+        fill: colors.$forest-greenV2;
+    }
+    
+    &__patch-one {
+        fill: colors.$forest-greenV3;
+    }  
+}
+
+.nature__leaves {
+    animation: windBlow 2s ease-in-out infinite;
+    fill: colors.$forest-greenV4;
+
+    &-light {
+        fill: colors.$forest-greenV3;
+    }
+}
+
+.bird {
+    width: 8%;
+    bottom: 37.5vw;
+    left: 30%;
+    fill: #c24444;
+
+    &--active {
+        animation: flyAndBobAndLeft 2s linear forwards, birdUpDown 2s linear infinite;
+    }
+
+    &__wing {
+        transform-origin: center;
+        animation: flapWings 2s ease-in-out alternate;
+        fill: #943737;
+    }
+    
+    &__blush {
+        fill: #e05b5a;
+    }
+    
+    &__stomach {
+        fill: #e5e0c7;
+    }
+    
+    &__details {
+        fill: #602526;
+    }    
+}
+
+.nature__tree {
+    width: 72%;
+    fill: colors.$earth-brownV3;
+
+    &-highlight {
+        fill: colors.$earth-brownV1;
+    }
+    
+    &-mid {
+        fill: colors.$earth-brownV4;
+    }
+    
+    &-shadow {
+        fill: colors.$earth-brownV5;
+    }
+}
+
+
+@keyframes flyAndBobAndLeft {
+    0% {
+        transform: translate(0, 0);
+    }
+
+    15% {
+        transform: translate(-40%, 10%);
+    }
+
+    30% {
+        transform: translate(-80%, 5%);
+    }
+
+    45% {
+        transform: translate(-120%, -10%);
+    }
+
+    58% {
+        transform: translate(-160%, -5%);
+    }
+
+    59%,
+    60%,
+    100% {
+        transform: translate(-165%, 0%);
+    }
+}
+
+@keyframes birdUpDown {
+
+    60%,
+    70% {
+        transform: translate(-165%, 10%);
+    }
+
+    70%,
+    80% {
+        transform: translate(-165%, 0%);
+    }
+
+    80%,
+    90% {
+        transform: translate(-165%, 10%);
+    }
+
+    90%,
+    100% {
+        transform: translate(-165%, 0%);
+    }
+}
+
+@keyframes flapWings {
+    0% {
+        transform: rotate(0);
+    }
+
+    25% {
+        transform: rotate(10deg);
+    }
+
+    50% {
+        transform: rotate(5deg);
+    }
+
+    75% {
+        transform: rotate(-10deg);
+    }
+
+    100% {
+        transform: rotate(-5deg);
+    }
+}
+
+@keyframes windBlow {
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(0.5%);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+.flowers {
+    fill: colors.$forest-greenV3;
+
+    &__bell {
+        fill: #4c6aa0;
+        transform-origin: center;
+        animation: flowerRotate 2s ease-in-out alternate infinite;
+    }
+
+    &__bell-shadow {
+        fill: #375786;
+    }
+
+    &--one,
+    &--three {
+        animation: flowerWaveOne 2s ease-in-out alternate infinite;
+    }
+
+    &--two {
+        animation: flowerWaveTwo 2s ease-in-out alternate infinite;
+    }
+}
+
+@keyframes flowerWaveOne {
+    100% {
+        transform: rotate(0.2deg);
+    }
+}
+
+@keyframes flowerWaveTwo {
+    100% {
+        transform: rotate(-0.2deg);
+    }
+}
+
+@keyframes flowerRotate {
+    0% {
+        transform: rotateX(-10deg) translateX(-0.1%);
+    }
+
+    50% {
+        transform: rotate(0);
+    }
+
+    100% {
+        transform: rotateX(10deg) translateX(0.1%);
+    }
+}
+
