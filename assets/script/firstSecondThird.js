@@ -24,6 +24,7 @@ const sThreeP_two = document.querySelector(".scene__third--second");
 const sThreeP_three = document.querySelector(".scene__third--third");
 let [activeParOneOpacity, activeParTwoOpacity, forestPatchPosition, paragraphOnePosition, paragraphTwoPosition, activeParThreeOpacity, paragraphThreePosition, paragraphFourPosition, activeParFourOpacity] = [0, 0, 0, 0, 0, 0, 0, 0, 0]
 let [activeParagraphThree, activeParagraphOne, activeParagraphTwo, activeParagraphFour, secondSceneInitiation, firstPhaseThree, secondPhaseTwo] = [undefined, undefined, undefined, undefined, false, false, false];
+let scrollable = true;
 
 scene.removeChild(secondScene);
 
@@ -81,15 +82,19 @@ function scTwoPthreeScThree(par) {
     pTop && !list ? secondScene.classList.add('scene__second--disabled') + sceneThreeContainer.classList.add('scene__container--active') + patches.forEach(patch => patch.classList.remove('forest__patch--grey')) + sceneOne.classList.remove('scene__one--dark') : null;
     !pTop && list ? secondScene.classList.remove('scene__second--disabled') + sceneThreeContainer.classList.remove('scene__container--active') + (plantChbx.checked = false) + patches.forEach(patch => patch.classList.add('forest__patch--grey')) + sceneOne.classList.add('scene__one--dark') : null;
     !plantChbx.checked ? seed.classList.remove("planes__seed--active") + seedPath.classList.remove("planes__path--active") + sThreeP_two.classList.remove("scene__third--active") + sThreeP_three.classList.remove("scene__third--enabled") : null;
+
 }
 
 document.addEventListener('wheel', (event) => {
-    const patchPosition = (forestPatchPosition = forestPatchPosition > 0 ? 0 : forestPatchPosition).toString() * 25;
-    leftPatchVal.getBoundingClientRect().left < -40 ? (event.deltaY < 0 ? forestPatchPosition++ : forestPatchPosition--) : sceneOnePhaseTwo(event);
-    firstPhaseThree ? sceneOnePhaseThree(event) : null;
-    patches.forEach(patch => patch.style.setProperty('--patch-pos', `${patchPosition}px`));
-    secondSceneInitiation ? sceneTwoPhaseOne(event) : sceneTwoPhaseOne(event);
-    secondPhaseTwo ? sceneTwoPhaseTwo(event) : sceneTwoPhaseTwo(event);
+    scrollable = (parFour.getBoundingClientRect().top + parFour.getBoundingClientRect().height) / window.innerHeight * 100 < -40 && event.deltaY > 0 ? false : true;
+    if (scrollable) {
+        const patchPosition = (forestPatchPosition = forestPatchPosition > 0 ? 0 : forestPatchPosition).toString() * 25;
+        leftPatchVal.getBoundingClientRect().left < -40 ? (event.deltaY < 0 ? forestPatchPosition++ : forestPatchPosition--) : sceneOnePhaseTwo(event);
+        firstPhaseThree ? sceneOnePhaseThree(event) : null;
+        patches.forEach(patch => patch.style.setProperty('--patch-pos', `${patchPosition}px`));
+        secondSceneInitiation ? sceneTwoPhaseOne(event) : sceneTwoPhaseOne(event);
+        secondPhaseTwo ? sceneTwoPhaseTwo(event) : sceneTwoPhaseTwo(event);
+    }
 });
 
 const observer = new IntersectionObserver((entries) => {
