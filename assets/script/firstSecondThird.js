@@ -75,12 +75,12 @@ function sceneTwoPhaseTwo(event) {
     secondPhaseTwo ? activeParagraphFour.style.setProperty('--paragraph-opacity', `${activeParFourOpacity.toString()}`) : null;
 }
 
-function sceneTwoPhaseThree(par) {
+function scTwoPthreeScThree(par) {
     const pTop = (par.getBoundingClientRect().top + par.getBoundingClientRect().height) / window.innerHeight * 100 < 0;
     const list = secondScene.classList.contains('scene__second--disabled');
     pTop && !list ? secondScene.classList.add('scene__second--disabled') + sceneThreeContainer.classList.add('scene__container--active') + patches.forEach(patch => patch.classList.remove('forest__patch--grey')) + sceneOne.classList.remove('scene__one--dark') : null;
-    !pTop && list ? secondScene.classList.remove('scene__second--disabled') + sceneThreeContainer.classList.remove('scene__container--active') + patches.forEach(patch => patch.classList.add('forest__patch--grey')) + sceneOne.classList.add('scene__one--dark') : null;
-
+    !pTop && list ? secondScene.classList.remove('scene__second--disabled') + sceneThreeContainer.classList.remove('scene__container--active') + (plantChbx.checked = false) + patches.forEach(patch => patch.classList.add('forest__patch--grey')) + sceneOne.classList.add('scene__one--dark') : null;
+    !plantChbx.checked ? seed.classList.remove("planes__seed--active") + seedPath.classList.remove("planes__path--active") + sThreeP_two.classList.remove("scene__third--active") + sThreeP_three.classList.remove("scene__third--enabled") : null;
 }
 
 document.addEventListener('wheel', (event) => {
@@ -104,7 +104,7 @@ const observer = new IntersectionObserver((entries) => {
         water.classList[parThreeTop < 0 ? 'add' : 'remove']('scene__water--active');
         secondPhaseTwo = parThreeTop < 0 ? true : false;
         allClouds.forEach(cloud => cloud.classList[parThreeTop < 0 ? 'add' : 'remove']('scene__cloud--active'));
-        parFour.isIntersecting ? sceneTwoPhaseThree(parFour) : sceneTwoPhaseThree(parFour);
+        parFour.isIntersecting ? scTwoPthreeScThree(parFour) : scTwoPthreeScThree(parFour);
     });
 },
     {
@@ -118,11 +118,6 @@ plantChbx.addEventListener("change", () => {
         seedPath.classList.add("planes__path--active");
         sThreeP_two.classList.add("scene__third--active");
         sThreeP_three.classList.add("scene__third--enabled");
-    } else if (seed.classList.contains("planes__seed--active")) {
-        seed.classList.remove("planes__seed--active");
-        seedPath.classList.remove("planes__path--active");
-        sThreeP_two.classList.remove("scene__third--active");
-        sThreeP_three.classList.remove("scene__third--enabled");
     }
 });
 
