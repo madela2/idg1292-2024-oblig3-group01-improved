@@ -123,7 +123,7 @@ html {
 
         &--disabled {
             transition: 0.8s ease-in-out;
-            height: 0%;
+            bottom: 100%;
             overflow: hidden;
         }
     }
@@ -377,13 +377,14 @@ html {
         opacity: 0;
 
         &--active {
-            top: 0;
+            top: 100%;
             left: 0;
             position: absolute;
             width: 100%;
             height: 100%;
             opacity: 1;
             z-index: 3;
+            animation: ApearThirdScene 0.8s ease-in-out forwards;
         }
     }
 
@@ -430,14 +431,22 @@ html {
 
 
 .planes {
-    &__label {
+    &__container {
         position: absolute;
-        z-index: 2;
+        transform: translate(-50%, 0%);
         left: 50%;
-        bottom: 60%;
-        transform: translate(-50%, -50%);
+        top: 3%;
+        display: flex;
+        gap: 5px;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    &__label {
+        z-index: 2;
         padding: 1% 2%;
-        font-size: 1.5em;
+        font-size: 1.4em;
+        border-radius: 3px;
         border: solid rgb(44, 44, 44) 1px;
         background-color: colors.$forest-bg;
     }
@@ -448,6 +457,13 @@ html {
         &:checked~.planes__label {
             display: none;
         }
+    }
+
+    &__text {
+        padding: 2%;
+        text-align: center;
+        box-shadow: 0px 0px 2vw 1vw rgba(0, 0, 0, 0.381);
+        background-color: colors.$forest-bg;
     }
 
     &__seed {
@@ -650,12 +666,127 @@ html {
         z-index: 2;
         bottom: 0;
         left: -60vw;
+        fill: #DBBB6B;
 
 
         &--active {
             animation: bulldozerDrive 4s linear forwards;
         }
     }
+
+    &__group--pipe {
+        animation: pipeShake 0.5s linear infinite;
+        fill: #6E707C;
+    }
+
+    &__group--lift {
+        animation: rocking 0.5s alternate infinite;
+    }
+
+    &__group--body {
+        animation: upDown 0.5s alternate infinite;
+    }
+
+    &__yellow-light {
+        fill: #EBCA71;
+    }
+
+    &__yellow-mid {
+        fill: #C1A35E;
+    }
+
+    &__yellow-dark {
+        fill: #947B4A;
+    }
+
+    &__grey-light {
+        fill: #B1B7C9;
+    }
+
+    &__grey-mid {
+        fill: #8B8F99;
+    }
+
+    &__grey-dark {
+        fill: #6E707C;
+    }
+
+    &__grey-xdark {
+        fill: #5F6269;
+    }
+}
+
+@keyframes ApearThirdScene {
+    0% {
+        top: 100%;
+    }
+
+    100% {
+        top: 0%;
+    }
+}
+
+
+@keyframes bulldozerDrive {
+    100% {
+        left: 200%;
+    }
+}
+
+@keyframes rocking {
+    from {
+        transform: rotate(0) translateY(-30px);
+    }
+
+    to {
+        transform: rotate(2deg) translateY(-40px);
+    }
+}
+
+@keyframes upDown {
+    from {
+        transform: translateY(0);
+    }
+
+    to {
+        transform: translateY(10px);
+    }
+}
+
+@keyframes pipeShake {
+
+    0%,
+    50%,
+    100% {
+        transform: translateX(0);
+    }
+
+    25% {
+        transform: translateX(2px);
+    }
+
+    75% {
+        transform: translateX(-2px);
+    }
+}
+
+@keyframes rotateWheel {
+    from {
+        transform: rotate(0);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.bulldozer__group--wheel {
+    transform-origin: center;
+    animation: rotateWheel 0.8s infinite;
+    transform-box: fill-box;
+    fill: #B1B7C9;
+    stroke-width: 4;
+    stroke: #8B8F99;
 }
 
 @keyframes sceneThreeAnimation {
