@@ -254,18 +254,6 @@ html {
   overflow: hidden;
   width: 100%;
 }
-.scene__water {
-  position: absolute;
-  background-color: rgba(76, 95, 142, 0.7411764706);
-  width: 120%;
-  height: 0;
-  transition: 1s;
-  bottom: -18%;
-  left: -5%;
-}
-.scene__water--active {
-  animation: waterAnimation 2s forwards;
-}
 .scene__clouds {
   transform: translate(-50%, -50%);
   top: calc((20vh + 3vw) / 2);

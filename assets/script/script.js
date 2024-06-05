@@ -13,7 +13,6 @@ const buildingTwo = document.querySelector('#scene__building--two');
 const forestSvg = document.querySelector('.forest__svg');
 const deer = document.querySelector('.forest__deer');
 const allClouds = document.querySelectorAll('.scene__cloud');
-const water = document.querySelector('.scene__water');
 const sceneThreeContainer = document.querySelector('.scene__container');
 const [parOne, parTwo, parThree, parFour] = [document.querySelector('#scene__paragraph--one'), document.querySelector('#scene__paragraph--two'), document.querySelector('#scene__paragraph--three'), document.querySelector('#scene__paragraph--four')];
 const sceneOneSvgs = [forestSvg, bulldozer, treesSvg, deer];
@@ -179,9 +178,6 @@ const observer = new IntersectionObserver((entries) => {
 
         //parThreeTop = top value + height of parThree.
         const parThreeTop = parThree.getBoundingClientRect().top + parThree.getBoundingClientRect().height;
-
-        //adds/removes modifier depending on parThreeTop
-        water.classList[parThreeTop < 0 ? 'add' : 'remove']('scene__water--active');
 
         //manages boolean "secondPhaseTwo" depending on "parThreeTop" value
         secondPhaseTwo = parThreeTop < 0 ? true : false;

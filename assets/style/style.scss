@@ -296,20 +296,6 @@ html {
         width: 100%;
     }
 
-    &__water {
-        position: absolute;
-        background-color: #4c5f8ebd;
-        width: 120%;
-        height: 0;
-        transition: 1s;
-        bottom: -18%;
-        left: -5%;
-
-        &--active {
-            animation: waterAnimation 2s forwards;
-        }
-    }
-
     &__clouds {
         transform: translate(-50%, -50%);
         top: calc((20vh + 3vw) / 2);
